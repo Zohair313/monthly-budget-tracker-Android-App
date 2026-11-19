@@ -96,8 +96,8 @@ export default function ExpenseList({ onEditExpense, onAddExpense, activeCategor
             onPress={onAddExpense}
             style={[styles.addBtnPill, { backgroundColor: colors.primary }]}
           >
-            <Ionicons name="add" size={15} color="#FFFFFF" />
-            <Text style={styles.addBtnText}>Add</Text>
+            <Ionicons name="add" size={15} color={colors.primaryText || '#0D1117'} />
+            <Text style={[styles.addBtnText, { color: colors.primaryText || '#0D1117' }]}>Add</Text>
           </TouchableOpacity>
         </View>
       </View>

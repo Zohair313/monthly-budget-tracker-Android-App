@@ -8,7 +8,7 @@ export default function SecurityGuideModal({ visible, onSetupNow, onSkip }) {
   const { user, themeMode } = useAuth();
   const colors = palette[themeMode] || palette.light;
   const clayCard = getClayCard(themeMode);
-  const primaryClayBtn = getClayButton(themeMode, '#7259EE', '#4E35C4');
+  const primaryClayBtn = getClayButton(themeMode, colors.primary, colors.primaryDark);
 
   return (
     <Modal visible={visible} transparent animationType="fade" onRequestClose={onSkip}>
@@ -16,8 +16,17 @@ export default function SecurityGuideModal({ visible, onSetupNow, onSkip }) {
         <View style={[styles.modalCard, clayCard]}>
           {/* Top 3D Clay Shield Emblem */}
           <View style={styles.emblemWrap}>
-            <View style={styles.shieldCoin}>
-              <Ionicons name="shield-checkmark" size={34} color="#FFFFFF" />
+            <View
+              style={[
+                styles.shieldCoin,
+                {
+                  backgroundColor: colors.primary,
+                  borderBottomColor: colors.primaryDark,
+                  shadowColor: colors.primary
+                }
+              ]}
+            >
+              <Ionicons name="shield-checkmark" size={34} color={colors.primaryText || '#0D1117'} />
             </View>
           </View>
 
@@ -78,8 +87,10 @@ export default function SecurityGuideModal({ visible, onSetupNow, onSkip }) {
               style={[styles.primaryBtn, primaryClayBtn]}
               activeOpacity={0.85}
             >
-              <Ionicons name="scan-outline" size={18} color="#FFFFFF" />
-              <Text style={styles.primaryBtnText}>Set Up PIN & Face ID Now</Text>
+              <Ionicons name="scan-outline" size={18} color={colors.primaryText || '#0D1117'} />
+              <Text style={[styles.primaryBtnText, { color: colors.primaryText || '#0D1117' }]}>
+                Set Up PIN & Face ID Now
+              </Text>
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -119,16 +130,16 @@ const styles = StyleSheet.create({
     width: 68,
     height: 68,
     borderRadius: 24,
-    backgroundColor: '#7259EE',
+    backgroundColor: '#C8F93B',
     borderTopWidth: 2.5,
     borderLeftWidth: 1.5,
     borderBottomWidth: 5,
-    borderTopColor: 'rgba(255, 255, 255, 0.55)',
-    borderLeftColor: 'rgba(255, 255, 255, 0.35)',
-    borderBottomColor: '#4A32C2',
+    borderTopColor: '#E6FFA4',
+    borderLeftColor: '#D4FFA6',
+    borderBottomColor: '#95C519',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#5138CC',
+    shadowColor: '#C8F93B',
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.35,
     shadowRadius: 16,

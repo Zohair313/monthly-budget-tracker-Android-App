@@ -139,7 +139,7 @@ export default function AppLockScreen({
   if (mode === 'setup' && step === 'faceid_offer') {
     return (
       <View style={styles.container}>
-        <StatusBar barStyle="light-content" backgroundColor="#7A63F1" />
+        <StatusBar barStyle="light-content" backgroundColor="#0D1117" />
         <View style={styles.orbTop} />
         <View style={styles.orbBottom} />
 
@@ -218,7 +218,7 @@ export default function AppLockScreen({
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#7A63F1" />
+      <StatusBar barStyle="light-content" backgroundColor="#0D1117" />
 
       {/* Decorative Clay Glows */}
       <View style={styles.orbTop} />
@@ -237,7 +237,7 @@ export default function AppLockScreen({
           <Ionicons
             name={mode === 'setup' ? 'shield-checkmark' : 'lock-closed'}
             size={34}
-            color="#FFFFFF"
+            color="#0D1117"
           />
         </View>
         <Text style={styles.title}>{titleText}</Text>
@@ -355,7 +355,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: '#7A63F1',
+    backgroundColor: '#0D1117',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 24,
@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
     width: 260,
     height: 260,
     borderRadius: 130,
-    backgroundColor: 'rgba(255, 255, 255, 0.12)'
+    backgroundColor: 'rgba(200, 249, 59, 0.08)'
   },
   orbBottom: {
     position: 'absolute',
@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
     width: 240,
     height: 240,
     borderRadius: 120,
-    backgroundColor: 'rgba(90, 212, 148, 0.2)'
+    backgroundColor: 'rgba(29, 59, 47, 0.35)'
   },
   cancelTopBtn: {
     position: 'absolute',
@@ -386,11 +386,11 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 14,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
     borderTopWidth: 1.5,
     borderBottomWidth: 3,
-    borderTopColor: 'rgba(255,255,255,0.4)',
-    borderBottomColor: 'rgba(40,20,120,0.3)',
+    borderTopColor: 'rgba(255,255,255,0.2)',
+    borderBottomColor: '#070A0F',
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -402,21 +402,21 @@ const styles = StyleSheet.create({
     width: 72,
     height: 72,
     borderRadius: 24,
-    backgroundColor: '#6B52E8',
+    backgroundColor: '#C8F93B',
     borderTopWidth: 2.5,
     borderLeftWidth: 2,
     borderRightWidth: 1,
     borderBottomWidth: 5.5,
-    borderTopColor: 'rgba(255, 255, 255, 0.6)',
-    borderLeftColor: 'rgba(255, 255, 255, 0.4)',
-    borderRightColor: 'rgba(0, 0, 0, 0.08)',
-    borderBottomColor: '#4A32C2',
+    borderTopColor: '#E6FFA4',
+    borderLeftColor: '#D4FFA6',
+    borderRightColor: 'rgba(0, 0, 0, 0.1)',
+    borderBottomColor: '#95C519',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 14,
-    shadowColor: '#3B22B0',
+    shadowColor: '#C8F93B',
     shadowOffset: { width: 0, height: 12 },
-    shadowOpacity: 0.4,
+    shadowOpacity: 0.45,
     shadowRadius: 18,
     elevation: 10
   },
@@ -462,9 +462,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.1)'
   },
   pinDotFilled: {
-    backgroundColor: '#86F0B8',
-    borderColor: '#FFFFFF',
-    shadowColor: '#86F0B8',
+    backgroundColor: '#C8F93B',
+    borderColor: '#E6FFA4',
+    shadowColor: '#C8F93B',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.9,
     shadowRadius: 8,

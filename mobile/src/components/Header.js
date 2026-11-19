@@ -38,14 +38,14 @@ export default function Header({ onOpenSettings }) {
         <Ionicons name="grid-outline" size={18} color="#FFFFFF" />
       </TouchableOpacity>
 
-      {/* Center: Puffy Frosted Violet Month Capsule */}
+      {/* Center: Puffy Frosted Month Capsule */}
       <View style={styles.monthCapsule}>
         <TouchableOpacity
           onPress={prevMonth}
           style={styles.chevronTouch}
           accessibilityLabel="Previous month"
         >
-          <Ionicons name="chevron-back" size={15} color="#FFFFFF" />
+          <Ionicons name="chevron-back" size={15} color={colors.primary} />
         </TouchableOpacity>
 
         <Text style={styles.monthText}>
@@ -57,11 +57,11 @@ export default function Header({ onOpenSettings }) {
           style={styles.chevronTouch}
           accessibilityLabel="Next month"
         >
-          <Ionicons name="chevron-forward" size={15} color="#FFFFFF" />
+          <Ionicons name="chevron-forward" size={15} color={colors.primary} />
         </TouchableOpacity>
       </View>
 
-      {/* Right: Theme Toggle & Glossy Clay Avatar */}
+      {/* Right: Theme Toggle & Glossy Avatar */}
       <View style={styles.rightGroup}>
         <TouchableOpacity
           style={styles.frostedClayBtnSmall}
@@ -72,18 +72,20 @@ export default function Header({ onOpenSettings }) {
           <Ionicons
             name={isDark ? 'sunny' : 'moon'}
             size={15}
-            color={isDark ? '#FDE047' : '#FFFFFF'}
+            color={isDark ? '#C8F93B' : '#FFFFFF'}
           />
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={onOpenSettings}
-          style={styles.avatarRing}
+          style={[styles.avatarRing, { backgroundColor: colors.surface }]}
           activeOpacity={0.85}
           accessibilityLabel="Account & Security Settings"
         >
-          <View style={styles.avatarInner}>
-            <Text style={styles.avatarText}>{(user?.name || 'U').charAt(0).toUpperCase()}</Text>
+          <View style={[styles.avatarInner, { backgroundColor: colors.primary }]}>
+            <Text style={[styles.avatarText, { color: colors.primaryText || '#0D1117' }]}>
+              {(user?.name || 'U').charAt(0).toUpperCase()}
+            </Text>
           </View>
         </TouchableOpacity>
       </View>

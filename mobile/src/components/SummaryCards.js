@@ -31,10 +31,10 @@ export default function SummaryCards({
   const isOverBudget = remainingBalance < 0;
   const isBudgetAlert = summary.is_budget_alert || burnRate >= 80;
 
-  // Puffy 3D Clay Card palette (matches mockup violet; adapts subtly on alert)
+  // Puffy 3D Clay Card palette (Cyber Lime Hero Card)
   let cardBg = colors.brandCard;
   let cardBottom = colors.brandCardBottom;
-  let cardShadow = isDark ? '#000000' : '#5A40DF';
+  let cardShadow = isDark ? '#000000' : colors.cardShadow || '#A2D31E';
 
   if (isOverBudget) {
     cardBg = '#D9435E';
@@ -45,6 +45,11 @@ export default function SummaryCards({
     cardBottom = '#A85D15';
     cardShadow = '#B5661A';
   }
+
+  const isCustomAlert = isOverBudget || isBudgetAlert;
+  const cardTextColor = isCustomAlert ? '#FFFFFF' : colors.brandCardText || '#0D1117';
+  const cardMutedColor = isCustomAlert ? 'rgba(255, 255, 255, 0.78)' : 'rgba(13, 17, 23, 0.65)';
+  const cardStripBg = isCustomAlert ? 'rgba(0, 0, 0, 0.22)' : 'rgba(13, 17, 23, 0.08)';
 
   return (
     <View style={styles.wrapper}>
@@ -71,18 +76,31 @@ export default function SummaryCards({
           {/* Row 1: Balance & Mastercard Circles */}
           <View style={styles.cardHeader}>
             <View style={styles.balanceGroup}>
-              <Text style={styles.balanceLabel}>Balance</Text>
-              <Text style={styles.balanceAmount} numberOfLines={1} adjustsFontSizeToFit>
+              <Text style={[styles.balanceLabel, { color: cardMutedColor }]}>Balance</Text>
+              <Text
+                style={[styles.balanceAmount, { color: cardTextColor }]}
+                numberOfLines={1}
+                adjustsFontSizeToFit
+              >
                 {formatCurrency(remainingBalance)}
               </Text>
             </View>
 
             <View style={styles.mastercardWrap}>
-              <View style={[styles.mcCircle, { backgroundColor: '#FF4F5A' }]} />
               <View
                 style={[
                   styles.mcCircle,
-                  { backgroundColor: '#FFB300', marginLeft: -12, opacity: 0.92 }
+                  { backgroundColor: isCustomAlert ? '#FFFFFF' : '#101720' }
+                ]}
+              />
+              <View
+                style={[
+                  styles.mcCircle,
+                  {
+                    backgroundColor: isCustomAlert ? '#FFCCD9' : '#1D3B2F',
+                    marginLeft: -12,
+                    opacity: 0.92
+                  }
                 ]}
               />
             </View>
@@ -90,39 +108,63 @@ export default function SummaryCards({
 
           {/* Row 2: Masked Card Digits */}
           <View style={styles.cardDigitsRow}>
-            <Text style={styles.cardDigits}>•••• •••• •••• 3432</Text>
+            <Text style={[styles.cardDigits, { color: cardMutedColor }]}>•••• •••• •••• 3432</Text>
           </View>
 
           {/* Row 3: Exp & Cardholder Name (Clean Mockup Layout) */}
           <View style={styles.cardFooter}>
             <View>
-              <Text style={styles.metaLabel}>Exp</Text>
-              <Text style={styles.metaValue}>12/28</Text>
+              <Text style={[styles.metaLabel, { color: cardMutedColor }]}>Exp</Text>
+              <Text style={[styles.metaValue, { color: cardTextColor }]}>12/28</Text>
             </View>
 
             <View style={styles.metaRight}>
-              <Text style={styles.metaLabel}>Name</Text>
-              <Text style={styles.metaValue} numberOfLines={1}>
+              <Text style={[styles.metaLabel, { color: cardMutedColor }]}>Name</Text>
+              <Text style={[styles.metaValue, { color: cardTextColor }]} numberOfLines={1}>
                 {user?.name || 'Demo Trainee'}
               </Text>
             </View>
           </View>
 
           {/* Row 4: Soft Frosted Income & Expense Summary Strip */}
-          <View style={styles.metricsStrip}>
+          <View
+            style={[
+              styles.metricsStrip,
+              {
+                backgroundColor: cardStripBg,
+                borderColor: isCustomAlert ? 'rgba(255,255,255,0.18)' : 'rgba(13, 17, 23, 0.12)'
+              }
+            ]}
+          >
             <TouchableOpacity
               style={styles.metricHalf}
               onPress={onOpenSetIncome}
               activeOpacity={0.8}
             >
               <View style={styles.metricTitleRow}>
-                <View style={[styles.metricDot, { backgroundColor: '#6EE7B7' }]} />
-                <Text style={styles.metricOverline}>INCOME</Text>
+                <View
+                  style={[
+                    styles.metricDot,
+                    { backgroundColor: isCustomAlert ? '#86F0B8' : '#101720' }
+                  ]}
+                />
+                <Text style={[styles.metricOverline, { color: cardMutedColor }]}>INCOME</Text>
               </View>
-              <Text style={styles.metricVal}>{formatCurrency(totalIncome)}</Text>
+              <Text style={[styles.metricVal, { color: cardTextColor }]}>
+                {formatCurrency(totalIncome)}
+              </Text>
             </TouchableOpacity>
 
-            <View style={styles.metricDivider} />
+            <View
+              style={[
+                styles.metricDivider,
+                {
+                  backgroundColor: isCustomAlert
+                    ? 'rgba(255,255,255,0.2)'
+                    : 'rgba(13, 17, 23, 0.15)'
+                }
+              ]}
+            />
 
             <TouchableOpacity
               style={styles.metricHalf}
@@ -130,17 +172,19 @@ export default function SummaryCards({
               activeOpacity={0.8}
             >
               <View style={styles.metricTitleRow}>
-                <View style={[styles.metricDot, { backgroundColor: '#FCA5A5' }]} />
-                <Text style={styles.metricOverline}>EXPENSES</Text>
+                <View style={[styles.metricDot, { backgroundColor: '#FF5C67' }]} />
+                <Text style={[styles.metricOverline, { color: cardMutedColor }]}>EXPENSES</Text>
               </View>
-              <Text style={styles.metricVal}>{formatCurrency(totalExpense)}</Text>
+              <Text style={[styles.metricVal, { color: cardTextColor }]}>
+                {formatCurrency(totalExpense)}
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
 
         {/* 2. Four Puffy 3D Pastel Clay Action Tiles (Exact Mockup Colors) */}
         <View style={styles.tilesGrid}>
-          {/* Tile 1: Mint Green (Income) */}
+          {/* Tile 1: Cyber Lime (Income) */}
           <TouchableOpacity
             style={styles.tileCol}
             onPress={onOpenSetIncome}
@@ -159,12 +203,12 @@ export default function SummaryCards({
                 }
               ]}
             >
-              <Ionicons name="wallet-outline" size={25} color="#FFFFFF" />
+              <Ionicons name="wallet" size={24} color={colors.tileMintText || '#0D1117'} />
             </View>
             <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>Income</Text>
           </TouchableOpacity>
 
-          {/* Tile 2: Soft Pink (Expense) */}
+          {/* Tile 2: Pine Sage (Expense) */}
           <TouchableOpacity
             style={styles.tileCol}
             onPress={onOpenAddExpense}
@@ -183,12 +227,12 @@ export default function SummaryCards({
                 }
               ]}
             >
-              <Ionicons name="receipt-outline" size={25} color="#FFFFFF" />
+              <Ionicons name="receipt" size={24} color={colors.primary} />
             </View>
             <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>Expense</Text>
           </TouchableOpacity>
 
-          {/* Tile 3: Periwinkle Violet (Analytics) */}
+          {/* Tile 3: Obsidian Slate (Analytics) */}
           <TouchableOpacity
             style={styles.tileCol}
             onPress={onToggleCategoryBreakdown}
@@ -207,12 +251,12 @@ export default function SummaryCards({
                 }
               ]}
             >
-              <Ionicons name="bar-chart" size={24} color="#FFFFFF" />
+              <Ionicons name="bar-chart" size={24} color="#5EEAD4" />
             </View>
             <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>Analytics</Text>
           </TouchableOpacity>
 
-          {/* Tile 4: Soft Sky Cyan (Statement) */}
+          {/* Tile 4: Deep Forest Slate (Statement) */}
           <TouchableOpacity
             style={styles.tileCol}
             onPress={onOpenExport}
@@ -231,7 +275,7 @@ export default function SummaryCards({
                 }
               ]}
             >
-              <Ionicons name="document-text-outline" size={24} color="#FFFFFF" />
+              <Ionicons name="document-text" size={24} color={colors.primary} />
             </View>
             <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>Statement</Text>
           </TouchableOpacity>

@@ -92,21 +92,26 @@ export default function AuthScreen() {
 
         {/* Brand Header */}
         <View style={styles.heroSection}>
-          <View style={styles.brandIconCircle}>
-            <Ionicons name="wallet" size={32} color={colors.primary} />
+          <View style={[styles.brandIconCircle, { backgroundColor: colors.primary }]}>
+            <Ionicons name="wallet" size={32} color={colors.primaryText || '#0D1117'} />
           </View>
-          <Text style={styles.heroTitle}>Budget Tracker</Text>
-          <Text style={styles.heroSubtitle}>Smart Monthly Financial Management</Text>
+          <Text style={[styles.heroTitle, { color: colors.textWhite }]}>Budget Tracker</Text>
+          <Text style={[styles.heroSubtitle, { color: colors.textSecondary }]}>
+            Smart Monthly Financial Management
+          </Text>
         </View>
 
-        {/* Executive White Card */}
+        {/* Executive Card */}
         <View
           style={[styles.authCard, { backgroundColor: colors.surface, borderColor: colors.border }]}
         >
           {/* Segmented Switch */}
           <View style={[styles.tabsWrap, { backgroundColor: colors.surfaceSubtle }]}>
             <TouchableOpacity
-              style={[styles.tabBtn, !isRegister && styles.tabBtnActive]}
+              style={[
+                styles.tabBtn,
+                !isRegister && [styles.tabBtnActive, { backgroundColor: colors.primary }]
+              ]}
               onPress={() => {
                 setIsRegister(false);
                 setErrorMsg('');
@@ -116,7 +121,7 @@ export default function AuthScreen() {
                 style={[
                   styles.tabBtnText,
                   {
-                    color: !isRegister ? colors.text : colors.textSecondary,
+                    color: !isRegister ? colors.primaryText || '#0D1117' : colors.textSecondary,
                     fontWeight: !isRegister ? '800' : '600'
                   }
                 ]}
@@ -126,7 +131,10 @@ export default function AuthScreen() {
             </TouchableOpacity>
 
             <TouchableOpacity
-              style={[styles.tabBtn, isRegister && styles.tabBtnActive]}
+              style={[
+                styles.tabBtn,
+                isRegister && [styles.tabBtnActive, { backgroundColor: colors.primary }]
+              ]}
               onPress={() => {
                 setIsRegister(true);
                 setErrorMsg('');
@@ -136,7 +144,7 @@ export default function AuthScreen() {
                 style={[
                   styles.tabBtnText,
                   {
-                    color: isRegister ? colors.text : colors.textSecondary,
+                    color: isRegister ? colors.primaryText || '#0D1117' : colors.textSecondary,
                     fontWeight: isRegister ? '800' : '600'
                   }
                 ]}
@@ -250,9 +258,9 @@ export default function AuthScreen() {
               disabled={isLoading}
             >
               {isLoading ? (
-                <ActivityIndicator color="#FFFFFF" size="small" />
+                <ActivityIndicator color={colors.primaryText || '#0D1117'} size="small" />
               ) : (
-                <Text style={styles.submitButtonText}>
+                <Text style={[styles.submitButtonText, { color: colors.primaryText || '#0D1117' }]}>
                   {isRegister ? 'Create Account' : 'Sign In'}
                 </Text>
               )}
@@ -335,13 +343,12 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: 20,
-    backgroundColor: '#FFFFFF',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 12,
-    shadowColor: '#0F172A',
+    shadowColor: '#000000',
     shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.18,
+    shadowOpacity: 0.28,
     shadowRadius: 12,
     elevation: 6
   },

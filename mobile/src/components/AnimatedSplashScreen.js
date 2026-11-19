@@ -111,7 +111,7 @@ export default function AnimatedSplashScreen({ onFinish }) {
 
   return (
     <Animated.View style={[styles.container, { opacity: exitAnim }]}>
-      <StatusBar barStyle="light-content" backgroundColor="#7A63F1" />
+      <StatusBar barStyle="light-content" backgroundColor="#0D1117" />
 
       {/* Decorative ambient background glows */}
       <View style={styles.glowCircle1} />
@@ -128,7 +128,7 @@ export default function AnimatedSplashScreen({ onFinish }) {
       >
         {/* 3D Tactile Executive Logo Coin */}
         <View style={styles.clayLogoCoin}>
-          <Ionicons name="wallet" size={46} color="#FFFFFF" />
+          <Ionicons name="wallet" size={46} color="#0D1117" />
         </View>
 
         {/* Brand Typography */}
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: Platform.OS === 'web' ? '100%' : width,
     height: Platform.OS === 'web' ? '100%' : height,
-    backgroundColor: '#7A63F1', // Full screen Claymorphism Soft Violet
+    backgroundColor: '#0D1117', // Full screen Obsidian Charcoal
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 999999
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     width: 320,
     height: 320,
     borderRadius: 160,
-    backgroundColor: 'rgba(255, 255, 255, 0.14)'
+    backgroundColor: 'rgba(200, 249, 59, 0.08)'
   },
   glowCircle2: {
     position: 'absolute',
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     width: 280,
     height: 280,
     borderRadius: 140,
-    backgroundColor: 'rgba(90, 212, 148, 0.22)'
+    backgroundColor: 'rgba(29, 59, 47, 0.35)'
   },
   contentWrap: {
     alignItems: 'center',
@@ -191,21 +191,21 @@ const styles = StyleSheet.create({
     width: 98,
     height: 98,
     borderRadius: 32,
-    backgroundColor: '#6B52E8',
+    backgroundColor: '#C8F93B',
     borderTopWidth: 3,
     borderLeftWidth: 2,
     borderRightWidth: 1.5,
     borderBottomWidth: 6,
-    borderTopColor: 'rgba(255, 255, 255, 0.65)',
-    borderLeftColor: 'rgba(255, 255, 255, 0.45)',
+    borderTopColor: '#E6FFA4',
+    borderLeftColor: '#D4FFA6',
     borderRightColor: 'rgba(0, 0, 0, 0.08)',
-    borderBottomColor: '#4A32C2',
+    borderBottomColor: '#95C519',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
-    shadowColor: '#3B22B0',
+    shadowColor: '#C8F93B',
     shadowOffset: { width: 0, height: 14 },
-    shadowOpacity: 0.42,
+    shadowOpacity: 0.45,
     shadowRadius: 22,
     elevation: 10
   },
@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
   progressBar: {
     height: '100%',
     borderRadius: 4,
-    backgroundColor: '#86F0B8'
+    backgroundColor: '#C8F93B'
   },
   progressStatusRow: {
     flexDirection: 'row',

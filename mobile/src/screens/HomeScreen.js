@@ -183,9 +183,16 @@ export default function HomeScreen() {
             activeOpacity={0.8}
             accessibilityLabel="Overview / All Data"
           >
-            <Ionicons name="home" size={20} color={!showCharts ? '#FFFFFF' : colors.dockInactive} />
+            <Ionicons
+              name="home"
+              size={20}
+              color={!showCharts ? colors.dockActive : colors.dockInactive}
+            />
             <Text
-              style={[styles.dockLabel, { color: !showCharts ? '#FFFFFF' : colors.dockInactive }]}
+              style={[
+                styles.dockLabel,
+                { color: !showCharts ? colors.dockActive : colors.dockInactive }
+              ]}
             >
               Data
             </Text>
@@ -201,10 +208,13 @@ export default function HomeScreen() {
             <Ionicons
               name="bar-chart"
               size={20}
-              color={showCharts ? '#86F0B8' : colors.dockInactive}
+              color={showCharts ? colors.dockActive : colors.dockInactive}
             />
             <Text
-              style={[styles.dockLabel, { color: showCharts ? '#86F0B8' : colors.dockInactive }]}
+              style={[
+                styles.dockLabel,
+                { color: showCharts ? colors.dockActive : colors.dockInactive }
+              ]}
             >
               Charts
             </Text>
@@ -215,16 +225,16 @@ export default function HomeScreen() {
             style={[
               styles.dockCenterBtn,
               {
-                backgroundColor: colors.topBackdrop,
-                borderBottomColor: colors.dockBottom,
-                shadowColor: colors.dockBottom
+                backgroundColor: colors.primary,
+                borderColor: '#1D2A1C',
+                shadowColor: colors.primary
               }
             ]}
             onPress={() => setShowAddExpense(true)}
             activeOpacity={0.85}
             accessibilityLabel="Add New Expense"
           >
-            <Ionicons name="add" size={28} color="#FFFFFF" />
+            <Ionicons name="add" size={28} color={colors.primaryText || '#0D1117'} />
           </TouchableOpacity>
 
           {/* Nav 4: Report */}

@@ -38,8 +38,8 @@ export default function ExportModal({ visible, onClose }) {
   const { user, themeMode } = useAuth();
   const colors = palette[themeMode] || palette.light;
   const clayCard = getClayCard(themeMode);
-  const clayPdfBtn = getClayButton(themeMode, '#7259EE', '#4E35C4');
-  const clayCsvBtn = getClayButton(themeMode, '#45CF87', '#24A462');
+  const clayPdfBtn = getClayButton(themeMode, colors.primary, colors.primaryDark);
+  const clayCsvBtn = getClayButton(themeMode, '#22C55E', '#16A34A');
   const clayPill = getClayPill(themeMode);
 
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
@@ -65,8 +65,8 @@ export default function ExportModal({ visible, onClose }) {
       const margin = 16;
       const contentW = pageW - margin * 2;
 
-      // 1. Violet Claymorphism Header Banner
-      doc.setFillColor(122, 99, 241); // #7A63F1
+      // 1. Midnight Obsidian Header Banner
+      doc.setFillColor(16, 23, 32); // #101720
       doc.rect(0, 0, pageW, 42, 'F');
 
       doc.setTextColor(255, 255, 255);
@@ -206,7 +206,7 @@ export default function ExportModal({ visible, onClose }) {
       y += 5;
 
       // Table Header
-      doc.setFillColor(122, 99, 241);
+      doc.setFillColor(29, 59, 47); // #1D3B2F Deep Pine Sage
       doc.roundedRect(margin, y, contentW, 9, 2, 2, 'F');
       doc.setTextColor(255, 255, 255);
       doc.setFont('helvetica', 'bold');
@@ -469,8 +469,14 @@ export default function ExportModal({ visible, onClose }) {
                 <ActivityIndicator size="small" color="#FFFFFF" />
               ) : (
                 <>
-                  <Ionicons name="document-text" size={18} color="#FFFFFF" />
-                  <Text style={styles.fullActionText}>Download / Share PDF Report</Text>
+                  <Ionicons
+                    name="document-text"
+                    size={18}
+                    color={colors.primaryText || '#0D1117'}
+                  />
+                  <Text style={[styles.fullActionText, { color: colors.primaryText || '#0D1117' }]}>
+                    Download / Share PDF Report
+                  </Text>
                 </>
               )}
             </TouchableOpacity>

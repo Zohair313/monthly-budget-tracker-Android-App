@@ -6,11 +6,11 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#7A63F1"
+      "backgroundColor": "#0D1117"
     },
     "ios": {
       "supportsTablet": true,
@@ -23,7 +23,7 @@
       "package": "com.zohair.budgettracker",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#7A63F1"
+        "backgroundColor": "#0D1117"
       },
       "permissions": [
         "USE_BIOMETRIC",
@@ -36,8 +36,8 @@
       "favicon": "./assets/icon.png",
       "name": "Budget Tracker",
       "shortName": "Budget",
-      "themeColor": "#7A63F1",
-      "backgroundColor": "#7A63F1",
+      "themeColor": "#0D1117",
+      "backgroundColor": "#0D1117",
       "display": "standalone",
       "orientation": "portrait"
     },
