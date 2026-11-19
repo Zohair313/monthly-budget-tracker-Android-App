@@ -218,7 +218,7 @@ export default function AppLockScreen({
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#0D1117" />
+      <StatusBar barStyle="light-content" backgroundColor="#130E0B" />
 
       {/* Decorative Clay Glows */}
       <View style={styles.orbTop} />
@@ -237,7 +237,7 @@ export default function AppLockScreen({
           <Ionicons
             name={mode === 'setup' ? 'shield-checkmark' : 'lock-closed'}
             size={34}
-            color="#0D1117"
+            color="#FFFFFF"
           />
         </View>
         <Text style={styles.title}>{titleText}</Text>
@@ -355,7 +355,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: '#0D1117',
+    backgroundColor: '#130E0B',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 24,
@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
     width: 260,
     height: 260,
     borderRadius: 130,
-    backgroundColor: 'rgba(200, 249, 59, 0.08)'
+    backgroundColor: 'rgba(234, 97, 19, 0.12)'
   },
   orbBottom: {
     position: 'absolute',
@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
     width: 240,
     height: 240,
     borderRadius: 120,
-    backgroundColor: 'rgba(29, 59, 47, 0.35)'
+    backgroundColor: 'rgba(248, 143, 34, 0.12)'
   },
   cancelTopBtn: {
     position: 'absolute',
@@ -390,7 +390,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1.5,
     borderBottomWidth: 3,
     borderTopColor: 'rgba(255,255,255,0.2)',
-    borderBottomColor: '#070A0F',
+    borderBottomColor: '#0A0604',
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -402,19 +402,19 @@ const styles = StyleSheet.create({
     width: 72,
     height: 72,
     borderRadius: 24,
-    backgroundColor: '#C8F93B',
+    backgroundColor: '#EA6113',
     borderTopWidth: 2.5,
     borderLeftWidth: 2,
     borderRightWidth: 1,
     borderBottomWidth: 5.5,
-    borderTopColor: '#E6FFA4',
-    borderLeftColor: '#D4FFA6',
+    borderTopColor: '#FFA066',
+    borderLeftColor: '#FFA066',
     borderRightColor: 'rgba(0, 0, 0, 0.1)',
-    borderBottomColor: '#95C519',
+    borderBottomColor: '#A83E05',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 14,
-    shadowColor: '#C8F93B',
+    shadowColor: '#F88F22',
     shadowOffset: { width: 0, height: 12 },
     shadowOpacity: 0.45,
     shadowRadius: 18,
@@ -462,9 +462,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.1)'
   },
   pinDotFilled: {
-    backgroundColor: '#C8F93B',
-    borderColor: '#E6FFA4',
-    shadowColor: '#C8F93B',
+    backgroundColor: '#FBB931',
+    borderColor: '#FFE3B3',
+    shadowColor: '#FBB931',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.9,
     shadowRadius: 8,
@@ -517,10 +517,10 @@ const styles = StyleSheet.create({
     borderTopColor: 'rgba(255, 255, 255, 0.45)',
     borderLeftColor: 'rgba(255, 255, 255, 0.3)',
     borderRightColor: 'rgba(0, 0, 0, 0.06)',
-    borderBottomColor: 'rgba(48, 25, 145, 0.45)',
+    borderBottomColor: 'rgba(19, 14, 11, 0.65)',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#3B22B0',
+    shadowColor: '#130E0B',
     shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 0.25,
     shadowRadius: 10,
@@ -531,9 +531,9 @@ const styles = StyleSheet.create({
     height: 62
   },
   bioKeyBtn: {
-    backgroundColor: 'rgba(90, 212, 148, 0.32)',
-    borderTopColor: 'rgba(154, 245, 196, 0.65)',
-    borderBottomColor: 'rgba(30, 130, 80, 0.5)'
+    backgroundColor: 'rgba(248, 143, 34, 0.32)',
+    borderTopColor: 'rgba(255, 227, 179, 0.65)',
+    borderBottomColor: 'rgba(168, 62, 5, 0.5)'
   },
   bioKeyLabel: {
     color: '#FFFFFF',
@@ -585,11 +585,11 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 50,
     borderRadius: 16,
-    backgroundColor: '#45CF87',
+    backgroundColor: '#EA6113',
     borderTopWidth: 2,
     borderBottomWidth: 4.5,
-    borderTopColor: '#9AF5C4',
-    borderBottomColor: '#24A462',
+    borderTopColor: '#FFA066',
+    borderBottomColor: '#A83E05',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

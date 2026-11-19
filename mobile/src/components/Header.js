@@ -72,7 +72,7 @@ export default function Header({ onOpenSettings }) {
           <Ionicons
             name={isDark ? 'sunny' : 'moon'}
             size={15}
-            color={isDark ? '#C8F93B' : '#FFFFFF'}
+            color={isDark ? '#FBB931' : '#FFFFFF'}
           />
         </TouchableOpacity>
 

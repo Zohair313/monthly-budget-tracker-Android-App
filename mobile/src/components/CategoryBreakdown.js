@@ -81,10 +81,10 @@ export default function CategoryBreakdown({ onSelectCategory, activeCategory }) 
                             styles.pinkClayBar,
                             {
                               height: `${pct}%`,
-                              backgroundColor: isSelected ? '#5EEAD4' : colors.chartBar,
-                              borderTopColor: isSelected ? '#A5F3FC' : colors.chartBarTop,
-                              borderLeftColor: isSelected ? '#A5F3FC' : colors.chartBarTop,
-                              borderBottomColor: isSelected ? '#0D9488' : colors.chartBarBottom
+                              backgroundColor: isSelected ? '#FBB931' : colors.chartBar,
+                              borderTopColor: isSelected ? '#FFE3B3' : colors.chartBarTop,
+                              borderLeftColor: isSelected ? '#FFE3B3' : colors.chartBarTop,
+                              borderBottomColor: isSelected ? '#C78910' : colors.chartBarBottom
                             }
                           ]}
                         />

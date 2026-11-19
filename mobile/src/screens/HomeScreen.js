@@ -226,7 +226,7 @@ export default function HomeScreen() {
               styles.dockCenterBtn,
               {
                 backgroundColor: colors.primary,
-                borderColor: '#1D2A1C',
+                borderColor: colors.dockBg,
                 shadowColor: colors.primary
               }
             ]}

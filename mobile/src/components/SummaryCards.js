@@ -47,9 +47,9 @@ export default function SummaryCards({
   }
 
   const isCustomAlert = isOverBudget || isBudgetAlert;
-  const cardTextColor = isCustomAlert ? '#FFFFFF' : colors.brandCardText || '#0D1117';
-  const cardMutedColor = isCustomAlert ? 'rgba(255, 255, 255, 0.78)' : 'rgba(13, 17, 23, 0.65)';
-  const cardStripBg = isCustomAlert ? 'rgba(0, 0, 0, 0.22)' : 'rgba(13, 17, 23, 0.08)';
+  const cardTextColor = isCustomAlert ? '#FFFFFF' : colors.brandCardText || '#FFFFFF';
+  const cardMutedColor = isCustomAlert ? 'rgba(255, 255, 255, 0.82)' : 'rgba(255, 227, 179, 0.85)';
+  const cardStripBg = 'rgba(0, 0, 0, 0.22)';
 
   return (
     <View style={styles.wrapper}>
@@ -87,19 +87,14 @@ export default function SummaryCards({
             </View>
 
             <View style={styles.mastercardWrap}>
-              <View
-                style={[
-                  styles.mcCircle,
-                  { backgroundColor: isCustomAlert ? '#FFFFFF' : '#101720' }
-                ]}
-              />
+              <View style={[styles.mcCircle, { backgroundColor: '#FBB931' }]} />
               <View
                 style={[
                   styles.mcCircle,
                   {
-                    backgroundColor: isCustomAlert ? '#FFCCD9' : '#1D3B2F',
+                    backgroundColor: '#FFE3B3',
                     marginLeft: -12,
-                    opacity: 0.92
+                    opacity: 0.95
                   }
                 ]}
               />
@@ -132,7 +127,7 @@ export default function SummaryCards({
               styles.metricsStrip,
               {
                 backgroundColor: cardStripBg,
-                borderColor: isCustomAlert ? 'rgba(255,255,255,0.18)' : 'rgba(13, 17, 23, 0.12)'
+                borderColor: 'rgba(255, 227, 179, 0.22)'
               }
             ]}
           >
@@ -142,12 +137,7 @@ export default function SummaryCards({
               activeOpacity={0.8}
             >
               <View style={styles.metricTitleRow}>
-                <View
-                  style={[
-                    styles.metricDot,
-                    { backgroundColor: isCustomAlert ? '#86F0B8' : '#101720' }
-                  ]}
-                />
+                <View style={[styles.metricDot, { backgroundColor: '#FBB931' }]} />
                 <Text style={[styles.metricOverline, { color: cardMutedColor }]}>INCOME</Text>
               </View>
               <Text style={[styles.metricVal, { color: cardTextColor }]}>
@@ -159,9 +149,7 @@ export default function SummaryCards({
               style={[
                 styles.metricDivider,
                 {
-                  backgroundColor: isCustomAlert
-                    ? 'rgba(255,255,255,0.2)'
-                    : 'rgba(13, 17, 23, 0.15)'
+                  backgroundColor: 'rgba(255, 227, 179, 0.2)'
                 }
               ]}
             />
@@ -172,7 +160,7 @@ export default function SummaryCards({
               activeOpacity={0.8}
             >
               <View style={styles.metricTitleRow}>
-                <View style={[styles.metricDot, { backgroundColor: '#FF5C67' }]} />
+                <View style={[styles.metricDot, { backgroundColor: '#FFE3B3' }]} />
                 <Text style={[styles.metricOverline, { color: cardMutedColor }]}>EXPENSES</Text>
               </View>
               <Text style={[styles.metricVal, { color: cardTextColor }]}>
@@ -203,7 +191,7 @@ export default function SummaryCards({
                 }
               ]}
             >
-              <Ionicons name="wallet" size={24} color={colors.tileMintText || '#0D1117'} />
+              <Ionicons name="wallet" size={24} color={colors.tileMintText || '#22160F'} />
             </View>
             <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>Income</Text>
           </TouchableOpacity>
@@ -227,7 +215,7 @@ export default function SummaryCards({
                 }
               ]}
             >
-              <Ionicons name="receipt" size={24} color={colors.primary} />
+              <Ionicons name="receipt" size={24} color={colors.tileCoralText || '#FFFFFF'} />
             </View>
             <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>Expense</Text>
           </TouchableOpacity>
@@ -251,7 +239,7 @@ export default function SummaryCards({
                 }
               ]}
             >
-              <Ionicons name="bar-chart" size={24} color="#5EEAD4" />
+              <Ionicons name="bar-chart" size={24} color={colors.tileVioletText || '#FFFFFF'} />
             </View>
             <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>Analytics</Text>
           </TouchableOpacity>
@@ -275,7 +263,7 @@ export default function SummaryCards({
                 }
               ]}
             >
-              <Ionicons name="document-text" size={24} color={colors.primary} />
+              <Ionicons name="document-text" size={24} color={colors.tileCyanText || '#FFE3B3'} />
             </View>
             <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>Statement</Text>
           </TouchableOpacity>

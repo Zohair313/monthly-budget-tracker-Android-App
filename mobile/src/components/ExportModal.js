@@ -65,8 +65,8 @@ export default function ExportModal({ visible, onClose }) {
       const margin = 16;
       const contentW = pageW - margin * 2;
 
-      // 1. Midnight Obsidian Header Banner
-      doc.setFillColor(16, 23, 32); // #101720
+      // 1. Midnight Espresso Header Banner
+      doc.setFillColor(19, 14, 11); // #130E0B
       doc.rect(0, 0, pageW, 42, 'F');
 
       doc.setTextColor(255, 255, 255);
@@ -111,7 +111,7 @@ export default function ExportModal({ visible, onClose }) {
           label: 'REMAINING BALANCE',
           value: formatRs(remainingBalance),
           bg: [242, 240, 255],
-          accent: remainingBalance < 0 ? [204, 67, 67] : [81, 56, 204]
+          accent: remainingBalance < 0 ? [220, 38, 38] : [234, 97, 19]
         }
       ];
 

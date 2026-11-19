@@ -128,7 +128,7 @@ export default function AnimatedSplashScreen({ onFinish }) {
       >
         {/* 3D Tactile Executive Logo Coin */}
         <View style={styles.clayLogoCoin}>
-          <Ionicons name="wallet" size={46} color="#0D1117" />
+          <Ionicons name="wallet" size={46} color="#FFFFFF" />
         </View>
 
         {/* Brand Typography */}
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: Platform.OS === 'web' ? '100%' : width,
     height: Platform.OS === 'web' ? '100%' : height,
-    backgroundColor: '#0D1117', // Full screen Obsidian Charcoal
+    backgroundColor: '#130E0B', // Full screen Espresso Obsidian
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 999999
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     width: 320,
     height: 320,
     borderRadius: 160,
-    backgroundColor: 'rgba(200, 249, 59, 0.08)'
+    backgroundColor: 'rgba(234, 97, 19, 0.12)'
   },
   glowCircle2: {
     position: 'absolute',
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     width: 280,
     height: 280,
     borderRadius: 140,
-    backgroundColor: 'rgba(29, 59, 47, 0.35)'
+    backgroundColor: 'rgba(248, 143, 34, 0.12)'
   },
   contentWrap: {
     alignItems: 'center',
@@ -191,19 +191,19 @@ const styles = StyleSheet.create({
     width: 98,
     height: 98,
     borderRadius: 32,
-    backgroundColor: '#C8F93B',
+    backgroundColor: '#EA6113',
     borderTopWidth: 3,
     borderLeftWidth: 2,
     borderRightWidth: 1.5,
     borderBottomWidth: 6,
-    borderTopColor: '#E6FFA4',
-    borderLeftColor: '#D4FFA6',
+    borderTopColor: '#FFA066',
+    borderLeftColor: '#FFA066',
     borderRightColor: 'rgba(0, 0, 0, 0.08)',
-    borderBottomColor: '#95C519',
+    borderBottomColor: '#A83E05',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
-    shadowColor: '#C8F93B',
+    shadowColor: '#F88F22',
     shadowOffset: { width: 0, height: 14 },
     shadowOpacity: 0.45,
     shadowRadius: 22,
@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
   progressBar: {
     height: '100%',
     borderRadius: 4,
-    backgroundColor: '#C8F93B'
+    backgroundColor: '#F88F22'
   },
   progressStatusRow: {
     flexDirection: 'row',
