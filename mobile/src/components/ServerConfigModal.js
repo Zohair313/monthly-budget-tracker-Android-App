@@ -14,6 +14,7 @@ import Ionicons from './Icon';
 import { useAuth } from '../context/AuthContext';
 import { useSecurity } from '../context/SecurityContext';
 import { palette, getClayCard, getClayButton, getClayInput, getClayPill } from '../theme/colors';
+import { aiAgentService } from '../services/aiAgent';
 
 export default function ServerConfigModal({ visible, onClose }) {
   const {
@@ -48,12 +49,18 @@ export default function ServerConfigModal({ visible, onClose }) {
   const [pingStatus, setPingStatus] = useState(null);
   const [securityMsg, setSecurityMsg] = useState('');
   const [bioBusy, setBioBusy] = useState(false);
+  const [groqKey, setGroqKey] = useState('');
+  const [showGroqKey, setShowGroqKey] = useState(false);
+  const [isTestingGroq, setIsTestingGroq] = useState(false);
+  const [groqStatus, setGroqStatus] = useState(null);
 
   useEffect(() => {
     if (visible) {
       setInputUrl(apiUrl);
       setPingStatus(null);
       setSecurityMsg('');
+      setGroqStatus(null);
+      aiAgentService.getApiKey().then((k) => setGroqKey(k || ''));
     }
   }, [visible, apiUrl]);
 
@@ -111,7 +118,21 @@ export default function ServerConfigModal({ visible, onClose }) {
       return;
     }
     await updateApiUrl(inputUrl.trim());
+    await aiAgentService.setApiKey(groqKey.trim());
     onClose();
+  };
+
+  const handleTestGroq = async () => {
+    setIsTestingGroq(true);
+    setGroqStatus(null);
+    try {
+      const res = await aiAgentService.testConnection(groqKey.trim());
+      setGroqStatus({ ok: true, msg: `Groq AI Online (${res.activeModel})` });
+    } catch (err) {
+      setGroqStatus({ ok: false, msg: err?.message || 'Groq connection failed' });
+    } finally {
+      setIsTestingGroq(false);
+    }
   };
 
   const handlePing = async () => {
@@ -403,6 +424,80 @@ export default function ServerConfigModal({ visible, onClose }) {
               />
             </View>
 
+            {/* SECTION 3: GROQ AI AGENT */}
+            <Text style={[styles.sectionLabel, { color: colors.primary, marginTop: 14 }]}>
+              GROQ AI AGENT
+            </Text>
+
+            <View style={styles.inputGroup}>
+              <View style={styles.labelRow}>
+                <Text style={[styles.inputLabel, { color: colors.textSecondary }]}>
+                  GROQ API KEY (LLM AGENT)
+                </Text>
+                <TouchableOpacity onPress={() => setShowGroqKey(!showGroqKey)}>
+                  <Text style={[styles.showKeyText, { color: colors.primary }]}>
+                    {showGroqKey ? 'Hide' : 'Show Key'}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+              <View
+                style={[styles.inputBox, clayInput, { flexDirection: 'row', alignItems: 'center' }]}
+              >
+                <Ionicons
+                  name="sparkles"
+                  size={16}
+                  color={colors.primary}
+                  style={{ marginRight: 8 }}
+                />
+                <TextInput
+                  style={[styles.textInput, { color: colors.text, flex: 1 }]}
+                  placeholder="gsk_..."
+                  placeholderTextColor={colors.textTertiary}
+                  value={groqKey}
+                  onChangeText={setGroqKey}
+                  secureTextEntry={!showGroqKey}
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                />
+              </View>
+            </View>
+
+            <View style={styles.pingRow}>
+              <TouchableOpacity
+                onPress={handleTestGroq}
+                style={[styles.pingBtn, clayPill, { backgroundColor: colors.surfaceSubtle }]}
+                disabled={isTestingGroq}
+              >
+                <Ionicons
+                  name={isTestingGroq ? 'hourglass-outline' : 'flash-outline'}
+                  size={14}
+                  color={colors.primary}
+                />
+                <Text style={[styles.pingBtnText, { color: colors.primary }]}>
+                  {isTestingGroq ? 'Testing AI...' : 'Test Groq AI Key'}
+                </Text>
+              </TouchableOpacity>
+
+              {groqStatus && (
+                <View style={styles.pingResult}>
+                  <Ionicons
+                    name={groqStatus.ok ? 'checkmark-circle' : 'close-circle'}
+                    size={15}
+                    color={groqStatus.ok ? colors.income : colors.expense}
+                  />
+                  <Text
+                    style={[
+                      styles.pingResultText,
+                      { color: groqStatus.ok ? colors.income : colors.expense }
+                    ]}
+                    numberOfLines={1}
+                  >
+                    {groqStatus.msg}
+                  </Text>
+                </View>
+              )}
+            </View>
+
             {/* Stacked Action Buttons */}
             <View style={styles.actionStack}>
               <TouchableOpacity
@@ -590,6 +685,16 @@ const styles = StyleSheet.create({
   },
   inputGroup: {
     marginBottom: 10
+  },
+  labelRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 5
+  },
+  showKeyText: {
+    fontSize: 10,
+    fontWeight: '800'
   },
   inputLabel: {
     fontSize: 10,

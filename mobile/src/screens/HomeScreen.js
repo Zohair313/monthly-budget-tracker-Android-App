@@ -12,7 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionicons from '../components/Icon';
 import { useAuth } from '../context/AuthContext';
 import { useBudget } from '../context/BudgetContext';
-import { palette } from '../theme/colors';
+import { palette, getClayCard } from '../theme/colors';
 
 import Header from '../components/Header';
 import SummaryCards from '../components/SummaryCards';
@@ -28,10 +28,12 @@ import SetIncomeModal from '../components/SetIncomeModal';
 import AddEditExpenseModal from '../components/AddEditExpenseModal';
 import ServerConfigModal from '../components/ServerConfigModal';
 import ExportModal from '../components/ExportModal';
+import AIAssistantModal from '../components/AIAssistantModal';
 
 export default function HomeScreen() {
   const { themeMode } = useAuth();
   const colors = palette[themeMode] || palette.light;
+  const clayCard = getClayCard(themeMode);
   const { isLoading, refresh, errorMessage, clearError } = useBudget();
 
   // Active Category Filter & View Toggles
@@ -47,6 +49,7 @@ export default function HomeScreen() {
   const [editingExpense, setEditingExpense] = useState(null);
   const [showServerConfig, setShowServerConfig] = useState(false);
   const [showExport, setShowExport] = useState(false);
+  const [showAiModal, setShowAiModal] = useState(false);
 
   const handleOpenEdit = (expense) => {
     setEditingExpense(expense);
@@ -108,6 +111,43 @@ export default function HomeScreen() {
           <View style={[styles.mainContentSheet, { backgroundColor: colors.background }]}>
             {/* iOS Safari Standalone Install Tip (auto-hides once installed) */}
             <InstallPromptBanner />
+
+            {/* Groq AI Financial Coach Executive Banner */}
+            <View style={styles.aiAdvisorContainer}>
+              <TouchableOpacity
+                style={[
+                  styles.aiAdvisorBanner,
+                  clayCard,
+                  { backgroundColor: colors.surface, borderColor: 'rgba(234, 97, 19, 0.4)' }
+                ]}
+                onPress={() => setShowAiModal(true)}
+                activeOpacity={0.8}
+                accessibilityLabel="Open Groq AI Financial Coach"
+              >
+                <View
+                  style={[
+                    styles.aiAdvisorIcon,
+                    { backgroundColor: colors.primaryLight, borderColor: colors.primary }
+                  ]}
+                >
+                  <Ionicons name="sparkles" size={18} color={colors.primary} />
+                </View>
+                <View style={styles.aiAdvisorTextWrap}>
+                  <View style={styles.aiAdvisorHeaderRow}>
+                    <Text style={[styles.aiAdvisorTitle, { color: colors.text }]}>
+                      Groq AI Financial Coach
+                    </Text>
+                    <View style={styles.aiNewPill}>
+                      <Text style={styles.aiNewPillText}>GROQ AGENT</Text>
+                    </View>
+                  </View>
+                  <Text style={[styles.aiAdvisorSub, { color: colors.textSecondary }]}>
+                    Instant spending insights, health check & financial tips
+                  </Text>
+                </View>
+                <Ionicons name="chevron-forward" size={18} color={colors.primary} />
+              </TouchableOpacity>
+            </View>
 
             {/* Budget Alert Banner */}
             <BudgetAlertBanner />
@@ -270,6 +310,8 @@ export default function HomeScreen() {
       <ServerConfigModal visible={showServerConfig} onClose={() => setShowServerConfig(false)} />
 
       <ExportModal visible={showExport} onClose={() => setShowExport(false)} />
+
+      <AIAssistantModal visible={showAiModal} onClose={() => setShowAiModal(false)} />
     </SafeAreaView>
   );
 }
@@ -313,6 +355,56 @@ const styles = StyleSheet.create({
   },
   mainContentSheet: {
     paddingTop: 6
+  },
+  aiAdvisorContainer: {
+    paddingHorizontal: 20,
+    marginTop: 4,
+    marginBottom: 8
+  },
+  aiAdvisorBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 12,
+    borderRadius: 18,
+    borderWidth: 1
+  },
+  aiAdvisorIcon: {
+    width: 38,
+    height: 38,
+    borderRadius: 12,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  aiAdvisorTextWrap: {
+    flex: 1,
+    marginLeft: 12,
+    marginRight: 6
+  },
+  aiAdvisorHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginBottom: 2
+  },
+  aiAdvisorTitle: {
+    fontSize: 13,
+    fontWeight: '800'
+  },
+  aiNewPill: {
+    backgroundColor: '#FFE3B3',
+    paddingHorizontal: 6,
+    paddingVertical: 1,
+    borderRadius: 6
+  },
+  aiNewPillText: {
+    fontSize: 9,
+    fontWeight: '900',
+    color: '#22160F'
+  },
+  aiAdvisorSub: {
+    fontSize: 11,
+    fontWeight: '500'
   },
   accordionsSection: {
     paddingHorizontal: 20,
