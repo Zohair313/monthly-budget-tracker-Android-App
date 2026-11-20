@@ -38,14 +38,15 @@ export default function Header({ onOpenSettings }) {
         <Ionicons name="grid-outline" size={18} color="#FFFFFF" />
       </TouchableOpacity>
 
-      {/* Center: Puffy Frosted Month Capsule */}
+      {/* Center: Executive Frosted Month Capsule */}
       <View style={styles.monthCapsule}>
         <TouchableOpacity
           onPress={prevMonth}
           style={styles.chevronTouch}
+          hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
           accessibilityLabel="Previous month"
         >
-          <Ionicons name="chevron-back" size={15} color={colors.primary} />
+          <Ionicons name="chevron-back" size={16} color={colors.primary} />
         </TouchableOpacity>
 
         <Text style={styles.monthText}>
@@ -55,9 +56,10 @@ export default function Header({ onOpenSettings }) {
         <TouchableOpacity
           onPress={nextMonth}
           style={styles.chevronTouch}
+          hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
           accessibilityLabel="Next month"
         >
-          <Ionicons name="chevron-forward" size={15} color={colors.primary} />
+          <Ionicons name="chevron-forward" size={16} color={colors.primary} />
         </TouchableOpacity>
       </View>
 
@@ -106,41 +108,35 @@ const styles = StyleSheet.create({
     width: 38,
     height: 38,
     borderRadius: 14,
-    backgroundColor: 'rgba(255, 255, 255, 0.18)',
-    borderTopWidth: 1.5,
-    borderBottomWidth: 3,
-    borderTopColor: 'rgba(255, 255, 255, 0.42)',
-    borderBottomColor: 'rgba(40, 20, 120, 0.28)',
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.18)',
     alignItems: 'center',
     justifyContent: 'center'
   },
   frostedClayBtnSmall: {
-    width: 34,
-    height: 34,
-    borderRadius: 13,
-    backgroundColor: 'rgba(255, 255, 255, 0.18)',
-    borderTopWidth: 1.5,
-    borderBottomWidth: 3,
-    borderTopColor: 'rgba(255, 255, 255, 0.42)',
-    borderBottomColor: 'rgba(40, 20, 120, 0.28)',
+    width: 36,
+    height: 36,
+    borderRadius: 14,
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.18)',
     alignItems: 'center',
     justifyContent: 'center'
   },
   monthCapsule: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 10,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: 'rgba(255, 255, 255, 0.18)',
-    borderTopWidth: 1.5,
-    borderBottomWidth: 3,
-    borderTopColor: 'rgba(255, 255, 255, 0.4)',
-    borderBottomColor: 'rgba(40, 20, 120, 0.25)',
-    gap: 6
+    paddingHorizontal: 12,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.18)',
+    gap: 8
   },
   chevronTouch: {
-    padding: 4
+    padding: 6
   },
   monthText: {
     color: '#FFFFFF',
@@ -158,19 +154,19 @@ const styles = StyleSheet.create({
     height: 38,
     borderRadius: 19,
     backgroundColor: '#FFFFFF',
-    padding: 2.5,
-    borderBottomWidth: 3,
-    borderBottomColor: 'rgba(40, 20, 120, 0.3)',
-    shadowColor: '#362199',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    elevation: 4
+    padding: 2,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 227, 179, 0.35)',
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 3
   },
   avatarInner: {
     flex: 1,
-    borderRadius: 16,
-    backgroundColor: '#9080F8',
+    borderRadius: 17,
+    backgroundColor: '#EA6113',
     alignItems: 'center',
     justifyContent: 'center'
   },

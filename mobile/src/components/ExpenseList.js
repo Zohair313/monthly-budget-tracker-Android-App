@@ -153,18 +153,18 @@ export default function ExpenseList({ onEditExpense, onAddExpense, activeCategor
 
             return (
               <View key={item.id} style={[styles.transactionCard, clayCard]}>
-                {/* Left: Puffy 3D Solid Clay Icon Square (Mockup Style) */}
+                {/* Left: Refined Category Icon Badge */}
                 <View
                   style={[
                     styles.iconBadge,
                     {
                       backgroundColor: catColor,
-                      borderBottomColor: catDarkColor,
+                      borderColor: 'rgba(255, 255, 255, 0.25)',
                       shadowColor: catDarkColor
                     }
                   ]}
                 >
-                  <Ionicons name={iconName} size={22} color="#FFFFFF" />
+                  <Ionicons name={iconName} size={20} color="#FFFFFF" />
                 </View>
 
                 {/* Middle: Title, Date, Category */}
@@ -191,17 +191,19 @@ export default function ExpenseList({ onEditExpense, onAddExpense, activeCategor
                     <TouchableOpacity
                       onPress={() => onEditExpense(item)}
                       style={[styles.miniBtn, { backgroundColor: colors.surfaceSubtle }]}
+                      hitSlop={{ top: 8, bottom: 8, left: 6, right: 6 }}
                       accessibilityLabel={`Edit ${item.name}`}
                     >
-                      <Ionicons name="pencil" size={11} color={colors.textSecondary} />
+                      <Ionicons name="pencil" size={13} color={colors.textSecondary} />
                     </TouchableOpacity>
 
                     <TouchableOpacity
                       onPress={() => handleDelete(item)}
                       style={[styles.miniBtn, { backgroundColor: colors.expenseLight }]}
+                      hitSlop={{ top: 8, bottom: 8, left: 6, right: 6 }}
                       accessibilityLabel={`Delete ${item.name}`}
                     >
-                      <Ionicons name="trash-outline" size={11} color={colors.expense} />
+                      <Ionicons name="trash-outline" size={13} color={colors.expense} />
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -322,23 +324,18 @@ const styles = StyleSheet.create({
     minHeight: 76
   },
   iconBadge: {
-    width: 48,
-    height: 48,
-    borderRadius: 16,
-    borderTopWidth: 2,
-    borderLeftWidth: 1.5,
-    borderRightWidth: 1,
-    borderBottomWidth: 4,
-    borderTopColor: 'rgba(255, 255, 255, 0.45)',
-    borderLeftColor: 'rgba(255, 255, 255, 0.3)',
-    borderRightColor: 'rgba(0, 0, 0, 0.06)',
+    width: 44,
+    height: 44,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 14,
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.28,
-    shadowRadius: 8,
-    elevation: 4
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.22,
+    shadowRadius: 6,
+    elevation: 3
   },
   infoCol: {
     flex: 1,
@@ -382,12 +379,12 @@ const styles = StyleSheet.create({
   actionGroup: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 5
+    gap: 6
   },
   miniBtn: {
-    width: 24,
-    height: 24,
-    borderRadius: 8,
+    width: 28,
+    height: 28,
+    borderRadius: 9,
     alignItems: 'center',
     justifyContent: 'center'
   }

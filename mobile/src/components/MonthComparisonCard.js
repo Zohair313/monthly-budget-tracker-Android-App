@@ -28,20 +28,18 @@ export default function MonthComparisonCard() {
     <View style={[styles.container, clayCard]}>
       <View style={styles.cardTouch}>
         <View style={styles.cardLeft}>
-          {/* Puffy 3D Solid Lavender Clay Icon Square (Mockup Style) */}
+          {/* Executive Icon Square */}
           <View
             style={[
               styles.iconCoin,
               {
                 backgroundColor: colors.tileViolet,
-                borderTopColor: colors.tileVioletTop,
-                borderLeftColor: colors.tileVioletTop,
-                borderBottomColor: colors.tileVioletBottom,
-                shadowColor: colors.tileVioletBottom
+                borderColor: 'rgba(255, 227, 179, 0.25)',
+                shadowColor: colors.tileViolet
               }
             ]}
           >
-            <Ionicons name={iconName} size={23} color="#FFFFFF" />
+            <Ionicons name={iconName} size={22} color="#FFFFFF" />
           </View>
 
           <View style={styles.cardTextGroup}>
@@ -84,20 +82,17 @@ const styles = StyleSheet.create({
     gap: 14
   },
   iconCoin: {
-    width: 50,
-    height: 50,
-    borderRadius: 16,
-    borderTopWidth: 2,
-    borderLeftWidth: 1.5,
-    borderRightWidth: 1,
-    borderBottomWidth: 4,
-    borderRightColor: 'rgba(0, 0, 0, 0.06)',
+    width: 44,
+    height: 44,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 5
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.25,
+    shadowRadius: 6,
+    elevation: 3
   },
   cardTextGroup: {
     flex: 1

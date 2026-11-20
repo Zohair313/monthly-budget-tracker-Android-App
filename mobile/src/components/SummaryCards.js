@@ -33,16 +33,13 @@ export default function SummaryCards({
 
   // Puffy 3D Clay Card palette (Cyber Lime Hero Card)
   let cardBg = colors.brandCard;
-  let cardBottom = colors.brandCardBottom;
   let cardShadow = isDark ? '#000000' : colors.cardShadow || '#A2D31E';
 
   if (isOverBudget) {
     cardBg = '#D9435E';
-    cardBottom = '#A3243B';
     cardShadow = '#B82C45';
   } else if (isBudgetAlert) {
     cardBg = '#D9822B';
-    cardBottom = '#A85D15';
     cardShadow = '#B5661A';
   }
 
@@ -57,13 +54,12 @@ export default function SummaryCards({
       <View style={[styles.curvedBackdrop, { backgroundColor: colors.topBackdrop }]} />
 
       <View style={styles.container}>
-        {/* 1. Floating Puffy 3D Clay Debit-Style Balance Card */}
+        {/* 1. Floating Executive Sunset Balance Card */}
         <View
           style={[
             styles.clayCard,
             {
               backgroundColor: cardBg,
-              borderBottomColor: cardBottom,
               shadowColor: cardShadow
             }
           ]}
@@ -170,13 +166,13 @@ export default function SummaryCards({
           </View>
         </View>
 
-        {/* 2. Four Puffy 3D Pastel Clay Action Tiles (Exact Mockup Colors) */}
+        {/* 2. Four Executive Sunset Action Tiles */}
         <View style={styles.tilesGrid}>
-          {/* Tile 1: Cyber Lime (Income) */}
+          {/* Tile 1: Sunset Gold (Income) */}
           <TouchableOpacity
             style={styles.tileCol}
             onPress={onOpenSetIncome}
-            activeOpacity={0.82}
+            activeOpacity={0.7}
             accessibilityLabel="Set Monthly Income"
           >
             <View
@@ -184,10 +180,7 @@ export default function SummaryCards({
                 styles.clayTile,
                 {
                   backgroundColor: colors.tileMint,
-                  borderTopColor: colors.tileMintTop,
-                  borderLeftColor: colors.tileMintTop,
-                  borderBottomColor: colors.tileMintBottom,
-                  shadowColor: colors.tileMintBottom
+                  shadowColor: colors.tileMint
                 }
               ]}
             >
@@ -196,11 +189,11 @@ export default function SummaryCards({
             <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>Income</Text>
           </TouchableOpacity>
 
-          {/* Tile 2: Pine Sage (Expense) */}
+          {/* Tile 2: Sunset Tangerine (Expense) */}
           <TouchableOpacity
             style={styles.tileCol}
             onPress={onOpenAddExpense}
-            activeOpacity={0.82}
+            activeOpacity={0.7}
             accessibilityLabel="Add Expense"
           >
             <View
@@ -208,10 +201,7 @@ export default function SummaryCards({
                 styles.clayTile,
                 {
                   backgroundColor: colors.tileCoral,
-                  borderTopColor: colors.tileCoralTop,
-                  borderLeftColor: colors.tileCoralTop,
-                  borderBottomColor: colors.tileCoralBottom,
-                  shadowColor: colors.tileCoralBottom
+                  shadowColor: colors.tileCoral
                 }
               ]}
             >
@@ -220,11 +210,11 @@ export default function SummaryCards({
             <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>Expense</Text>
           </TouchableOpacity>
 
-          {/* Tile 3: Obsidian Slate (Analytics) */}
+          {/* Tile 3: Amber Mandarin (Analytics) */}
           <TouchableOpacity
             style={styles.tileCol}
             onPress={onToggleCategoryBreakdown}
-            activeOpacity={0.82}
+            activeOpacity={0.7}
             accessibilityLabel="View Analytics"
           >
             <View
@@ -232,10 +222,7 @@ export default function SummaryCards({
                 styles.clayTile,
                 {
                   backgroundColor: colors.tileViolet,
-                  borderTopColor: colors.tileVioletTop,
-                  borderLeftColor: colors.tileVioletTop,
-                  borderBottomColor: colors.tileVioletBottom,
-                  shadowColor: colors.tileVioletBottom
+                  shadowColor: colors.tileViolet
                 }
               ]}
             >
@@ -244,11 +231,11 @@ export default function SummaryCards({
             <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>Analytics</Text>
           </TouchableOpacity>
 
-          {/* Tile 4: Deep Forest Slate (Statement) */}
+          {/* Tile 4: Espresso Slate (Statement) */}
           <TouchableOpacity
             style={styles.tileCol}
             onPress={onOpenExport}
-            activeOpacity={0.82}
+            activeOpacity={0.7}
             accessibilityLabel="Export Statement"
           >
             <View
@@ -256,10 +243,7 @@ export default function SummaryCards({
                 styles.clayTile,
                 {
                   backgroundColor: colors.tileCyan,
-                  borderTopColor: colors.tileCyanTop,
-                  borderLeftColor: colors.tileCyanTop,
-                  borderBottomColor: colors.tileCyanBottom,
-                  shadowColor: colors.tileCyanBottom
+                  shadowColor: colors.tileCyan
                 }
               ]}
             >
@@ -292,21 +276,16 @@ const styles = StyleSheet.create({
     paddingTop: 6
   },
   clayCard: {
-    borderRadius: 28,
+    borderRadius: 24,
     paddingHorizontal: 22,
-    paddingTop: 20,
-    paddingBottom: 16,
-    borderTopWidth: 2.5,
-    borderLeftWidth: 1.5,
-    borderRightWidth: 1.5,
-    borderBottomWidth: 6,
-    borderTopColor: 'rgba(255, 255, 255, 0.44)',
-    borderLeftColor: 'rgba(255, 255, 255, 0.28)',
-    borderRightColor: 'rgba(0, 0, 0, 0.08)',
-    shadowOffset: { width: 0, height: 14 },
-    shadowOpacity: 0.36,
-    shadowRadius: 22,
-    elevation: 12,
+    paddingTop: 22,
+    paddingBottom: 18,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 227, 179, 0.35)',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.35,
+    shadowRadius: 18,
+    elevation: 8,
     position: 'relative',
     overflow: 'hidden'
   },
@@ -444,23 +423,20 @@ const styles = StyleSheet.create({
     flex: 1
   },
   clayTile: {
-    width: 62,
-    height: 62,
-    borderRadius: 20,
-    borderTopWidth: 2.5,
-    borderLeftWidth: 1.5,
-    borderRightWidth: 1,
-    borderBottomWidth: 5,
-    borderRightColor: 'rgba(0, 0, 0, 0.06)',
+    width: 56,
+    height: 56,
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 227, 179, 0.25)',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.34,
-    shadowRadius: 12,
-    elevation: 7
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 4
   },
   tileLabel: {
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: '700',
     marginTop: 8,
     letterSpacing: 0.1

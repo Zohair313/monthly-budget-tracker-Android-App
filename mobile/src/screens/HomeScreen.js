@@ -161,15 +161,13 @@ export default function HomeScreen() {
           </View>
         </ScrollView>
 
-        {/* 5. Curved Puffy 3D Violet Clay Bottom Navigation Dock */}
+        {/* 5. Executive Floating Glass Bottom Navigation Dock */}
         <View
           style={[
             styles.bottomDock,
             {
               backgroundColor: colors.dockBg,
-              borderTopColor: colors.dockTop,
-              borderBottomColor: colors.dockBottom,
-              shadowColor: colors.dockBottom
+              borderColor: 'rgba(255, 227, 179, 0.16)'
             }
           ]}
         >
@@ -220,21 +218,20 @@ export default function HomeScreen() {
             </Text>
           </TouchableOpacity>
 
-          {/* Center Puffy 3D Clay Orb Action Button (+) */}
+          {/* Center Elevated Action Button (+) */}
           <TouchableOpacity
             style={[
               styles.dockCenterBtn,
               {
                 backgroundColor: colors.primary,
-                borderColor: colors.dockBg,
                 shadowColor: colors.primary
               }
             ]}
             onPress={() => setShowAddExpense(true)}
-            activeOpacity={0.85}
+            activeOpacity={0.8}
             accessibilityLabel="Add New Expense"
           >
-            <Ionicons name="add" size={28} color={colors.primaryText || '#0D1117'} />
+            <Ionicons name="add" size={28} color={colors.primaryText || '#FFFFFF'} />
           </TouchableOpacity>
 
           {/* Nav 4: Report */}
@@ -339,25 +336,21 @@ const styles = StyleSheet.create({
   },
   bottomDock: {
     position: 'absolute',
-    bottom: 16,
-    left: 18,
-    right: 18,
-    height: 68,
-    borderRadius: 28,
-    borderTopWidth: 2,
-    borderLeftWidth: 1.5,
-    borderRightWidth: 1.5,
-    borderBottomWidth: 5,
-    borderLeftColor: 'rgba(255, 255, 255, 0.22)',
-    borderRightColor: 'rgba(0, 0, 0, 0.08)',
+    bottom: 18,
+    left: 20,
+    right: 20,
+    height: 64,
+    borderRadius: 32,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 227, 179, 0.18)',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-    paddingHorizontal: 10,
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.36,
-    shadowRadius: 18,
-    elevation: 12
+    paddingHorizontal: 12,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.35,
+    shadowRadius: 16,
+    elevation: 8
   },
   dockItem: {
     width: 52,
@@ -367,22 +360,22 @@ const styles = StyleSheet.create({
     gap: 3
   },
   dockLabel: {
-    fontSize: 9,
+    fontSize: 10,
     fontWeight: '800',
     letterSpacing: 0.2
   },
   dockCenterBtn: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    marginTop: -28,
-    borderWidth: 3.5,
-    borderColor: 'rgba(255, 255, 255, 0.88)',
+    width: 54,
+    height: 54,
+    borderRadius: 27,
+    marginTop: -24,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 255, 255, 0.95)',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.42,
-    shadowRadius: 14,
-    elevation: 10
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
+    elevation: 8
   }
 });

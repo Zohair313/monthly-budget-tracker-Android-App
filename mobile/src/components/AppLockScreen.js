@@ -399,26 +399,20 @@ const styles = StyleSheet.create({
     marginBottom: 18
   },
   lockCoin: {
-    width: 72,
-    height: 72,
-    borderRadius: 24,
+    width: 68,
+    height: 68,
+    borderRadius: 22,
     backgroundColor: '#EA6113',
-    borderTopWidth: 2.5,
-    borderLeftWidth: 2,
-    borderRightWidth: 1,
-    borderBottomWidth: 5.5,
-    borderTopColor: '#FFA066',
-    borderLeftColor: '#FFA066',
-    borderRightColor: 'rgba(0, 0, 0, 0.1)',
-    borderBottomColor: '#A83E05',
+    borderWidth: 1.5,
+    borderColor: 'rgba(255, 227, 179, 0.4)',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 14,
     shadowColor: '#F88F22',
-    shadowOffset: { width: 0, height: 12 },
-    shadowOpacity: 0.45,
-    shadowRadius: 18,
-    elevation: 10
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.4,
+    shadowRadius: 16,
+    elevation: 8
   },
   title: {
     color: '#FFFFFF',
@@ -507,33 +501,27 @@ const styles = StyleSheet.create({
   },
   keyBtn: {
     flex: 1,
-    height: 62,
-    borderRadius: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    borderTopWidth: 2,
-    borderLeftWidth: 1.5,
-    borderRightWidth: 1,
-    borderBottomWidth: 4.5,
-    borderTopColor: 'rgba(255, 255, 255, 0.45)',
-    borderLeftColor: 'rgba(255, 255, 255, 0.3)',
-    borderRightColor: 'rgba(0, 0, 0, 0.06)',
-    borderBottomColor: 'rgba(19, 14, 11, 0.65)',
+    height: 60,
+    borderRadius: 18,
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 227, 179, 0.18)',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#130E0B',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.25,
-    shadowRadius: 10,
-    elevation: 5
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 3
   },
   keyPlaceholder: {
     flex: 1,
-    height: 62
+    height: 60
   },
   bioKeyBtn: {
-    backgroundColor: 'rgba(248, 143, 34, 0.32)',
-    borderTopColor: 'rgba(255, 227, 179, 0.65)',
-    borderBottomColor: 'rgba(168, 62, 5, 0.5)'
+    backgroundColor: 'rgba(248, 143, 34, 0.25)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 227, 179, 0.35)'
   },
   bioKeyLabel: {
     color: '#FFFFFF',

@@ -28,13 +28,12 @@ export default function CategoryBreakdown({ onSelectCategory, activeCategory }) 
 
   return (
     <View style={styles.wrapper}>
-      {/* Puffy 3D Purple Clay Chart Card (Matches Screen 2 of Mockup) */}
+      {/* Executive Financial Chart Card */}
       <View
         style={[
           styles.purpleCard,
           {
             backgroundColor: colors.chartBg,
-            borderBottomColor: colors.brandCardBottom,
             shadowColor: colors.shadow
           }
         ]}
@@ -158,19 +157,14 @@ const styles = StyleSheet.create({
     marginBottom: 14
   },
   purpleCard: {
-    borderRadius: 28,
+    borderRadius: 24,
     padding: 18,
-    borderTopWidth: 2,
-    borderLeftWidth: 1.5,
-    borderRightWidth: 1.5,
-    borderBottomWidth: 5.5,
-    borderTopColor: 'rgba(255, 255, 255, 0.38)',
-    borderLeftColor: 'rgba(255, 255, 255, 0.25)',
-    borderRightColor: 'rgba(0, 0, 0, 0.08)',
-    shadowOffset: { width: 0, height: 12 },
+    borderWidth: 1,
+    borderColor: 'rgba(255, 227, 179, 0.14)',
+    shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.3,
-    shadowRadius: 20,
-    elevation: 10
+    shadowRadius: 16,
+    elevation: 6
   },
   pillsHeader: {
     flexDirection: 'row',
@@ -184,13 +178,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 6,
     paddingHorizontal: 14,
-    paddingVertical: 8,
-    borderRadius: 16,
-    backgroundColor: 'rgba(255, 255, 255, 0.16)',
-    borderTopWidth: 1.5,
-    borderBottomWidth: 3.5,
-    borderTopColor: 'rgba(255, 255, 255, 0.38)',
-    borderBottomColor: 'rgba(35, 18, 110, 0.35)'
+    paddingVertical: 7,
+    borderRadius: 14,
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 227, 179, 0.15)'
   },
   purplePillText: {
     color: '#FFFFFF',
@@ -198,12 +190,10 @@ const styles = StyleSheet.create({
     fontWeight: '800'
   },
   chartWell: {
-    borderRadius: 22,
+    borderRadius: 18,
     padding: 16,
-    borderTopWidth: 2,
-    borderTopColor: 'rgba(35, 18, 110, 0.2)',
-    borderBottomWidth: 1.5,
-    borderBottomColor: 'rgba(255, 255, 255, 0.2)'
+    borderWidth: 1,
+    borderColor: 'rgba(255, 227, 179, 0.1)'
   },
   wellTitle: {
     color: '#FFFFFF',
@@ -239,18 +229,15 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   pinkClayBar: {
-    width: 15,
-    borderRadius: 10,
-    borderTopWidth: 2,
-    borderLeftWidth: 1.5,
-    borderRightWidth: 1,
-    borderBottomWidth: 3.5,
-    borderRightColor: 'rgba(0, 0, 0, 0.08)',
-    shadowColor: '#3A1C70',
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.35,
+    width: 14,
+    borderRadius: 7,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 227, 179, 0.3)',
+    shadowColor: '#EA6113',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
     shadowRadius: 6,
-    elevation: 4
+    elevation: 3
   },
   barDayLabel: {
     color: 'rgba(255, 255, 255, 0.9)',

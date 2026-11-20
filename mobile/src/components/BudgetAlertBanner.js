@@ -46,8 +46,7 @@ export default function BudgetAlertBanner() {
           styles.iconCoin,
           {
             backgroundColor: alertColor,
-            borderTopColor: 'rgba(255, 255, 255, 0.45)',
-            borderBottomColor: alertBorderBottom
+            borderColor: 'rgba(255, 255, 255, 0.35)'
           }
         ]}
       >
@@ -86,13 +85,10 @@ const styles = StyleSheet.create({
     gap: 12
   },
   iconCoin: {
-    width: 38,
-    height: 38,
-    borderRadius: 19,
-    borderTopWidth: 2,
-    borderLeftWidth: 1.5,
-    borderRightWidth: 1.5,
-    borderBottomWidth: 3,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 2

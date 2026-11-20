@@ -205,89 +205,70 @@ export const palette = {
   }
 };
 
-// True Puffy 3D Claymorphism Card Helper
+// Executive Premium Glass & Elevated Card Helper (Aligned with UI/UX Pro Max)
 export const getClayCard = (themeMode = 'dark') => {
   const isDark = themeMode === 'dark';
   return {
-    backgroundColor: isDark ? '#1E1510' : '#FFFFFF',
-    borderRadius: 24,
-    borderTopWidth: 2,
-    borderLeftWidth: 1.5,
-    borderRightWidth: 1.5,
-    borderBottomWidth: 4.5,
-    borderTopColor: isDark ? 'rgba(255, 227, 179, 0.08)' : '#FFFFFF',
-    borderLeftColor: isDark ? 'rgba(255, 227, 179, 0.04)' : '#FFFFFF',
-    borderRightColor: isDark ? 'rgba(0, 0, 0, 0.35)' : '#E8D8CC',
-    borderBottomColor: isDark ? '#0A0604' : '#DFCBBF',
-    shadowColor: isDark ? '#000000' : 'rgba(234, 97, 19, 0.12)',
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: isDark ? 0.55 : 0.15,
-    shadowRadius: 18,
-    elevation: 7
+    backgroundColor: isDark ? '#1C130D' : '#FFFFFF',
+    borderRadius: 22,
+    borderWidth: 1,
+    borderColor: isDark ? 'rgba(255, 227, 179, 0.08)' : '#E8D8CC',
+    shadowColor: isDark ? '#000000' : 'rgba(234, 97, 19, 0.1)',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: isDark ? 0.45 : 0.08,
+    shadowRadius: 14,
+    elevation: 4
   };
 };
 
-// Puffy 3D Clay Button Helper
+// Executive Tactile Button Helper
 export const getClayButton = (_themeMode = 'dark', customBg, customBottom) => {
   let bg = customBg || '#EA6113';
-  let bottom = customBottom || '#A83E05';
+  let shadow = customBottom || '#A83E05';
 
   if (customBg === 'income') {
     bg = '#FBB931';
-    bottom = '#C78910';
+    shadow = '#C78910';
   } else if (customBg === 'expense') {
     bg = '#EA6113';
-    bottom = '#A83E05';
+    shadow = '#A83E05';
   } else if (customBg === 'primary') {
     bg = '#F88F22';
-    bottom = '#B85C02';
+    shadow = '#B85C02';
   }
 
   return {
     backgroundColor: bg,
-    borderRadius: 18,
-    borderTopWidth: 2,
-    borderLeftWidth: 1.5,
-    borderRightWidth: 1,
-    borderBottomWidth: 4.5,
-    borderTopColor: 'rgba(255, 227, 179, 0.55)',
-    borderLeftColor: 'rgba(255, 227, 179, 0.3)',
-    borderRightColor: 'rgba(0, 0, 0, 0.1)',
-    borderBottomColor: bottom,
-    shadowColor: bottom,
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.35,
-    shadowRadius: 10,
-    elevation: 5
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 227, 179, 0.35)',
+    shadowColor: shadow,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 4
   };
 };
 
-// Soft Recessed Clay Input Helper
+// Executive Crisp Input Helper
 export const getClayInput = (themeMode = 'dark') => {
   const isDark = themeMode === 'dark';
   return {
-    backgroundColor: isDark ? '#140E0A' : '#F6EFE8',
-    borderRadius: 16,
-    borderTopWidth: 2,
-    borderLeftWidth: 1.5,
-    borderRightWidth: 1,
-    borderBottomWidth: 1.5,
-    borderTopColor: isDark ? '#090503' : '#E2D0C3',
-    borderLeftColor: isDark ? '#0B0705' : '#E8D8CC',
-    borderRightColor: isDark ? 'rgba(255, 227, 179, 0.05)' : '#FFFFFF',
-    borderBottomColor: isDark ? 'rgba(255, 227, 179, 0.06)' : '#FFFFFF'
+    backgroundColor: isDark ? '#160F0B' : '#F6EFE8',
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: isDark ? 'rgba(255, 227, 179, 0.1)' : '#E2D0C3'
   };
 };
 
-// Soft Puffy Clay Pill Helper
+// Executive Frosted Pill Helper
 export const getClayPill = (themeMode = 'dark') => {
   const isDark = themeMode === 'dark';
   return {
-    borderRadius: 14,
-    borderTopWidth: 1.5,
-    borderBottomWidth: 3,
-    borderTopColor: isDark ? 'rgba(255, 227, 179, 0.12)' : 'rgba(255, 255, 255, 0.85)',
-    borderBottomColor: isDark ? '#0A0604' : '#DFCBBF'
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: isDark ? 'rgba(255, 227, 179, 0.12)' : '#E8D8CC',
+    backgroundColor: isDark ? 'rgba(255, 227, 179, 0.04)' : '#FAF5F0'
   };
 };
 
