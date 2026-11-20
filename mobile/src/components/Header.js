@@ -30,7 +30,10 @@ export default function Header({ onOpenSettings }) {
     <View style={[styles.container, { backgroundColor: colors.topBackdrop }]}>
       {/* Left: 4-Dot Grid / Settings Button (Mockup Style) */}
       <TouchableOpacity
-        style={styles.frostedClayBtn}
+        style={[
+          styles.frostedClayBtn,
+          { backgroundColor: colors.primary, borderColor: colors.primary }
+        ]}
         onPress={onOpenSettings}
         activeOpacity={0.8}
         accessibilityLabel="App Settings"
@@ -39,7 +42,12 @@ export default function Header({ onOpenSettings }) {
       </TouchableOpacity>
 
       {/* Center: Executive Frosted Month Capsule */}
-      <View style={styles.monthCapsule}>
+      <View
+        style={[
+          styles.monthCapsule,
+          { backgroundColor: colors.surfaceSubtle, borderColor: colors.border }
+        ]}
+      >
         <TouchableOpacity
           onPress={prevMonth}
           style={styles.chevronTouch}
@@ -49,7 +57,7 @@ export default function Header({ onOpenSettings }) {
           <Ionicons name="chevron-back" size={16} color={colors.primary} />
         </TouchableOpacity>
 
-        <Text style={styles.monthText}>
+        <Text style={[styles.monthText, { color: colors.text }]}>
           {MONTH_NAMES[selectedMonth - 1]} {selectedYear}
         </Text>
 
@@ -66,16 +74,15 @@ export default function Header({ onOpenSettings }) {
       {/* Right: Theme Toggle & Glossy Avatar */}
       <View style={styles.rightGroup}>
         <TouchableOpacity
-          style={styles.frostedClayBtnSmall}
+          style={[
+            styles.frostedClayBtnSmall,
+            { backgroundColor: colors.primary, borderColor: colors.primary }
+          ]}
           onPress={toggleTheme}
           activeOpacity={0.8}
           accessibilityLabel="Toggle Theme"
         >
-          <Ionicons
-            name={isDark ? 'sunny' : 'moon'}
-            size={15}
-            color={isDark ? '#FBB931' : '#FFFFFF'}
-          />
+          <Ionicons name={isDark ? 'sunny' : 'moon'} size={15} color="#FFFFFF" />
         </TouchableOpacity>
 
         <TouchableOpacity

@@ -66,7 +66,10 @@ export default function HomeScreen() {
       style={[styles.safeArea, { backgroundColor: colors.topBackdrop }]}
       edges={['top', 'left', 'right']}
     >
-      <StatusBar barStyle="light-content" backgroundColor={colors.topBackdrop} />
+      <StatusBar
+        barStyle={themeMode === 'dark' ? 'light-content' : 'dark-content'}
+        backgroundColor={colors.topBackdrop}
+      />
 
       {/* 1. Seamless Claymorphism Header Over Violet Backdrop */}
       <Header onOpenSettings={() => setShowServerConfig(true)} />
@@ -118,7 +121,7 @@ export default function HomeScreen() {
                 style={[
                   styles.aiAdvisorBanner,
                   clayCard,
-                  { backgroundColor: colors.surface, borderColor: 'rgba(234, 97, 19, 0.4)' }
+                  { backgroundColor: colors.brandCard, borderColor: 'rgba(251, 185, 49, 0.4)' }
                 ]}
                 onPress={() => setShowAiModal(true)}
                 activeOpacity={0.8}
@@ -127,25 +130,25 @@ export default function HomeScreen() {
                 <View
                   style={[
                     styles.aiAdvisorIcon,
-                    { backgroundColor: colors.primaryLight, borderColor: colors.primary }
+                    { backgroundColor: 'rgba(255, 227, 179, 0.22)', borderColor: '#FFE3B3' }
                   ]}
                 >
-                  <Ionicons name="sparkles" size={18} color={colors.primary} />
+                  <Ionicons name="sparkles" size={18} color="#FFE3B3" />
                 </View>
                 <View style={styles.aiAdvisorTextWrap}>
                   <View style={styles.aiAdvisorHeaderRow}>
-                    <Text style={[styles.aiAdvisorTitle, { color: colors.text }]}>
+                    <Text style={[styles.aiAdvisorTitle, { color: '#FFFFFF' }]}>
                       Groq AI Financial Coach
                     </Text>
                     <View style={styles.aiNewPill}>
-                      <Text style={styles.aiNewPillText}>GROQ AGENT</Text>
+                      <Text style={styles.aiNewPillText}>GROQ LPU™</Text>
                     </View>
                   </View>
-                  <Text style={[styles.aiAdvisorSub, { color: colors.textSecondary }]}>
+                  <Text style={[styles.aiAdvisorSub, { color: 'rgba(255, 227, 179, 0.9)' }]}>
                     Instant spending insights, health check & financial tips
                   </Text>
                 </View>
-                <Ionicons name="chevron-forward" size={18} color={colors.primary} />
+                <Ionicons name="chevron-forward" size={18} color="#FFE3B3" />
               </TouchableOpacity>
             </View>
 
@@ -392,7 +395,7 @@ const styles = StyleSheet.create({
     fontWeight: '800'
   },
   aiNewPill: {
-    backgroundColor: '#FFE3B3',
+    backgroundColor: '#FBB931',
     paddingHorizontal: 6,
     paddingVertical: 1,
     borderRadius: 6
@@ -400,7 +403,7 @@ const styles = StyleSheet.create({
   aiNewPillText: {
     fontSize: 9,
     fontWeight: '900',
-    color: '#22160F'
+    color: '#1E100A'
   },
   aiAdvisorSub: {
     fontSize: 11,

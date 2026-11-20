@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
     width: 260,
     height: 260,
     borderRadius: 130,
-    backgroundColor: 'rgba(234, 97, 19, 0.12)'
+    backgroundColor: 'rgba(231, 168, 161, 0.12)'
   },
   orbBottom: {
     position: 'absolute',
@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
     width: 240,
     height: 240,
     borderRadius: 120,
-    backgroundColor: 'rgba(248, 143, 34, 0.12)'
+    backgroundColor: 'rgba(226, 141, 147, 0.12)'
   },
   cancelTopBtn: {
     position: 'absolute',
@@ -456,9 +456,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.1)'
   },
   pinDotFilled: {
-    backgroundColor: '#FBB931',
-    borderColor: '#FFE3B3',
-    shadowColor: '#FBB931',
+    backgroundColor: '#E7A8A1',
+    borderColor: '#FEFFFE',
+    shadowColor: '#E28D93',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.9,
     shadowRadius: 8,

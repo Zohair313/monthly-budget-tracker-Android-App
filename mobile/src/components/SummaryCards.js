@@ -72,7 +72,17 @@ export default function SummaryCards({
           {/* Row 1: Balance & Mastercard Circles */}
           <View style={styles.cardHeader}>
             <View style={styles.balanceGroup}>
-              <Text style={[styles.balanceLabel, { color: cardMutedColor }]}>Balance</Text>
+              <View style={styles.balanceTagRow}>
+                <Text style={[styles.balanceLabel, { color: cardMutedColor }]}>TOTAL BALANCE</Text>
+                <View style={styles.contactlessIconWrap}>
+                  <Ionicons
+                    name="wifi"
+                    size={16}
+                    color="rgba(255, 255, 255, 0.75)"
+                    style={{ transform: [{ rotate: '90deg' }] }}
+                  />
+                </View>
+              </View>
               <Text
                 style={[styles.balanceAmount, { color: cardTextColor }]}
                 numberOfLines={1}
@@ -83,17 +93,29 @@ export default function SummaryCards({
             </View>
 
             <View style={styles.mastercardWrap}>
-              <View style={[styles.mcCircle, { backgroundColor: '#FBB931' }]} />
+              <View style={[styles.mcCircle, { backgroundColor: '#EA6113' }]} />
               <View
                 style={[
                   styles.mcCircle,
                   {
-                    backgroundColor: '#FFE3B3',
+                    backgroundColor: '#FBB931',
                     marginLeft: -12,
                     opacity: 0.95
                   }
                 ]}
               />
+            </View>
+          </View>
+
+          {/* Row 1.5: Executive EMV Smart Chip */}
+          <View style={styles.chipRow}>
+            <View style={styles.emvChip}>
+              <View style={styles.chipHorizontalLine} />
+              <View style={styles.chipVerticalLine} />
+              <View style={styles.chipCenter} />
+            </View>
+            <View style={styles.platinumBadge}>
+              <Text style={styles.platinumText}>SUNSET METAL</Text>
             </View>
           </View>
 
@@ -105,12 +127,12 @@ export default function SummaryCards({
           {/* Row 3: Exp & Cardholder Name (Clean Mockup Layout) */}
           <View style={styles.cardFooter}>
             <View>
-              <Text style={[styles.metaLabel, { color: cardMutedColor }]}>Exp</Text>
+              <Text style={[styles.metaLabel, { color: cardMutedColor }]}>EXP</Text>
               <Text style={[styles.metaValue, { color: cardTextColor }]}>12/28</Text>
             </View>
 
             <View style={styles.metaRight}>
-              <Text style={[styles.metaLabel, { color: cardMutedColor }]}>Name</Text>
+              <Text style={[styles.metaLabel, { color: cardMutedColor }]}>CARDHOLDER</Text>
               <Text style={[styles.metaValue, { color: cardTextColor }]} numberOfLines={1}>
                 {user?.name || 'Demo Trainee'}
               </Text>
@@ -184,9 +206,10 @@ export default function SummaryCards({
                 }
               ]}
             >
-              <Ionicons name="wallet" size={24} color={colors.tileMintText || '#22160F'} />
+              <View style={styles.tileSheen} />
+              <Ionicons name="wallet" size={26} color={colors.tileMintText || '#FFFFFF'} />
             </View>
-            <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>Income</Text>
+            <Text style={[styles.tileLabel, { color: colors.text }]}>Income</Text>
           </TouchableOpacity>
 
           {/* Tile 2: Sunset Tangerine (Expense) */}
@@ -205,9 +228,10 @@ export default function SummaryCards({
                 }
               ]}
             >
-              <Ionicons name="receipt" size={24} color={colors.tileCoralText || '#FFFFFF'} />
+              <View style={styles.tileSheen} />
+              <Ionicons name="receipt" size={26} color={colors.tileCoralText || '#FFFFFF'} />
             </View>
-            <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>Expense</Text>
+            <Text style={[styles.tileLabel, { color: colors.text }]}>Expense</Text>
           </TouchableOpacity>
 
           {/* Tile 3: Amber Mandarin (Analytics) */}
@@ -226,9 +250,10 @@ export default function SummaryCards({
                 }
               ]}
             >
-              <Ionicons name="bar-chart" size={24} color={colors.tileVioletText || '#FFFFFF'} />
+              <View style={styles.tileSheen} />
+              <Ionicons name="bar-chart" size={26} color={colors.tileVioletText || '#FFFFFF'} />
             </View>
-            <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>Analytics</Text>
+            <Text style={[styles.tileLabel, { color: colors.text }]}>Analytics</Text>
           </TouchableOpacity>
 
           {/* Tile 4: Espresso Slate (Statement) */}
@@ -247,9 +272,10 @@ export default function SummaryCards({
                 }
               ]}
             >
-              <Ionicons name="document-text" size={24} color={colors.tileCyanText || '#FFE3B3'} />
+              <View style={styles.tileSheen} />
+              <Ionicons name="document-text" size={26} color={colors.tileCyanText || '#FEFFFE'} />
             </View>
-            <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>Statement</Text>
+            <Text style={[styles.tileLabel, { color: colors.text }]}>Statement</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -281,7 +307,7 @@ const styles = StyleSheet.create({
     paddingTop: 22,
     paddingBottom: 18,
     borderWidth: 1,
-    borderColor: 'rgba(255, 227, 179, 0.35)',
+    borderColor: 'rgba(254, 255, 254, 0.35)',
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.35,
     shadowRadius: 18,
@@ -317,6 +343,15 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 10
   },
+  balanceTagRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 2
+  },
+  contactlessIconWrap: {
+    opacity: 0.85
+  },
   balanceLabel: {
     color: 'rgba(255, 255, 255, 0.8)',
     fontSize: 12,
@@ -339,6 +374,60 @@ const styles = StyleSheet.create({
     width: 28,
     height: 28,
     borderRadius: 14
+  },
+  chipRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginVertical: 10
+  },
+  emvChip: {
+    width: 36,
+    height: 27,
+    borderRadius: 6,
+    backgroundColor: '#FBB931',
+    borderWidth: 1,
+    borderColor: '#FFE3B3',
+    position: 'relative',
+    overflow: 'hidden',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  chipHorizontalLine: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    height: 1,
+    backgroundColor: '#E59E15'
+  },
+  chipVerticalLine: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    width: 1,
+    backgroundColor: '#E59E15'
+  },
+  chipCenter: {
+    width: 14,
+    height: 11,
+    borderRadius: 3,
+    borderWidth: 1,
+    borderColor: '#E59E15',
+    backgroundColor: 'rgba(255, 227, 179, 0.4)'
+  },
+  platinumBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 227, 179, 0.4)',
+    backgroundColor: 'rgba(0, 0, 0, 0.25)'
+  },
+  platinumText: {
+    fontSize: 9,
+    fontWeight: '800',
+    color: '#FFE3B3',
+    letterSpacing: 1.5
   },
   cardDigitsRow: {
     marginVertical: 14
@@ -433,7 +522,19 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.25,
     shadowRadius: 8,
-    elevation: 4
+    elevation: 4,
+    position: 'relative',
+    overflow: 'hidden'
+  },
+  tileSheen: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 18,
+    backgroundColor: 'rgba(255, 255, 255, 0.22)',
+    borderTopLeftRadius: 18,
+    borderTopRightRadius: 18
   },
   tileLabel: {
     fontSize: 12,

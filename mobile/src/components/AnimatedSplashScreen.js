@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     width: 320,
     height: 320,
     borderRadius: 160,
-    backgroundColor: 'rgba(234, 97, 19, 0.12)'
+    backgroundColor: 'rgba(231, 168, 161, 0.12)'
   },
   glowCircle2: {
     position: 'absolute',
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     width: 280,
     height: 280,
     borderRadius: 140,
-    backgroundColor: 'rgba(248, 143, 34, 0.12)'
+    backgroundColor: 'rgba(226, 141, 147, 0.12)'
   },
   contentWrap: {
     alignItems: 'center',

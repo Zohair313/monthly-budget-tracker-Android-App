@@ -218,7 +218,7 @@ export default function AddEditExpenseModal({ visible, onClose, editingExpense }
                   clayPill,
                   {
                     backgroundColor: colors.surfaceSubtle,
-                    borderColor: 'rgba(234, 97, 19, 0.4)'
+                    borderColor: 'rgba(231, 168, 161, 0.4)'
                   }
                 ]}
               >
@@ -666,7 +666,7 @@ const styles = StyleSheet.create({
   aiTag: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FFE3B3',
+    backgroundColor: '#F8D1CC',
     paddingHorizontal: 8,
     paddingVertical: 3,
     borderRadius: 8,

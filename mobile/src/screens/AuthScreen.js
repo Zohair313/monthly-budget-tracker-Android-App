@@ -61,28 +61,32 @@ export default function AuthScreen() {
     setErrorMsg('');
   };
 
+  const isDark = themeMode === 'dark';
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={[styles.container, { backgroundColor: colors.topBackdrop }]}
+      style={[styles.container, { backgroundColor: colors.background }]}
     >
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         {/* Top Action Bar */}
         <View style={styles.topBar}>
           <TouchableOpacity
-            style={styles.frostedTopBtn}
+            style={[
+              styles.frostedTopBtn,
+              { backgroundColor: colors.primary, borderColor: colors.primary }
+            ]}
             onPress={toggleTheme}
             accessibilityLabel="Toggle Theme"
           >
-            <Ionicons
-              name={themeMode === 'dark' ? 'sunny-outline' : 'moon-outline'}
-              size={18}
-              color="#FFFFFF"
-            />
+            <Ionicons name={isDark ? 'sunny-outline' : 'moon-outline'} size={18} color="#FFFFFF" />
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={styles.frostedTopBtn}
+            style={[
+              styles.frostedTopBtn,
+              { backgroundColor: colors.primary, borderColor: colors.primary }
+            ]}
             onPress={() => setShowServerConfig(true)}
             accessibilityLabel="Server Settings"
           >
@@ -93,20 +97,36 @@ export default function AuthScreen() {
         {/* Brand Header */}
         <View style={styles.heroSection}>
           <View style={[styles.brandIconCircle, { backgroundColor: colors.primary }]}>
-            <Ionicons name="wallet" size={32} color={colors.primaryText || '#0D1117'} />
+            <Ionicons name="wallet" size={32} color="#FFFFFF" />
           </View>
-          <Text style={[styles.heroTitle, { color: colors.textWhite }]}>Budget Tracker</Text>
+          <Text style={[styles.heroTitle, { color: colors.text }]}>Budget Tracker</Text>
           <Text style={[styles.heroSubtitle, { color: colors.textSecondary }]}>
             Smart Monthly Financial Management
           </Text>
         </View>
 
-        {/* Executive Card */}
+        {/* Executive Sunset Card */}
         <View
-          style={[styles.authCard, { backgroundColor: colors.surface, borderColor: colors.border }]}
+          style={[
+            styles.authCard,
+            {
+              backgroundColor: isDark ? colors.surface : '#FFFFFF',
+              borderColor: isDark ? 'rgba(251, 185, 49, 0.35)' : 'rgba(234, 97, 19, 0.18)',
+              shadowColor: isDark ? '#000000' : 'rgba(234, 97, 19, 0.14)',
+              shadowOffset: { width: 0, height: 6 },
+              shadowOpacity: isDark ? 0.45 : 0.08,
+              shadowRadius: 16,
+              elevation: 4
+            }
+          ]}
         >
           {/* Segmented Switch */}
-          <View style={[styles.tabsWrap, { backgroundColor: colors.surfaceSubtle }]}>
+          <View
+            style={[
+              styles.tabsWrap,
+              { backgroundColor: isDark ? 'rgba(0, 0, 0, 0.25)' : colors.surfaceSubtle }
+            ]}
+          >
             <TouchableOpacity
               style={[
                 styles.tabBtn,
@@ -121,7 +141,7 @@ export default function AuthScreen() {
                 style={[
                   styles.tabBtnText,
                   {
-                    color: !isRegister ? colors.primaryText || '#0D1117' : colors.textSecondary,
+                    color: !isRegister ? '#FFFFFF' : isDark ? '#FFE3B3' : colors.textSecondary,
                     fontWeight: !isRegister ? '800' : '600'
                   }
                 ]}
@@ -144,7 +164,7 @@ export default function AuthScreen() {
                 style={[
                   styles.tabBtnText,
                   {
-                    color: isRegister ? colors.primaryText || '#0D1117' : colors.textSecondary,
+                    color: isRegister ? '#FFFFFF' : isDark ? '#FFE3B3' : colors.textSecondary,
                     fontWeight: isRegister ? '800' : '600'
                   }
                 ]}
@@ -158,11 +178,16 @@ export default function AuthScreen() {
           <View style={styles.formArea}>
             {isRegister && (
               <View style={styles.inputGroup}>
-                <Text style={[styles.label, { color: colors.textSecondary }]}>FULL NAME</Text>
+                <Text style={[styles.label, { color: isDark ? '#FFE3B3' : colors.text }]}>
+                  FULL NAME
+                </Text>
                 <View
                   style={[
                     styles.inputField,
-                    { backgroundColor: colors.surfaceSubtle, borderColor: colors.border }
+                    {
+                      backgroundColor: isDark ? '#170D08' : '#FFF8F2',
+                      borderColor: colors.border
+                    }
                   ]}
                 >
                   <Ionicons
@@ -184,11 +209,16 @@ export default function AuthScreen() {
             )}
 
             <View style={styles.inputGroup}>
-              <Text style={[styles.label, { color: colors.textSecondary }]}>EMAIL ADDRESS</Text>
+              <Text style={[styles.label, { color: isDark ? '#FFE3B3' : colors.text }]}>
+                EMAIL ADDRESS
+              </Text>
               <View
                 style={[
                   styles.inputField,
-                  { backgroundColor: colors.surfaceSubtle, borderColor: colors.border }
+                  {
+                    backgroundColor: isDark ? '#170D08' : '#FFF8F2',
+                    borderColor: colors.border
+                  }
                 ]}
               >
                 <Ionicons
@@ -210,11 +240,16 @@ export default function AuthScreen() {
             </View>
 
             <View style={styles.inputGroup}>
-              <Text style={[styles.label, { color: colors.textSecondary }]}>PASSWORD</Text>
+              <Text style={[styles.label, { color: isDark ? '#FFE3B3' : colors.text }]}>
+                PASSWORD
+              </Text>
               <View
                 style={[
                   styles.inputField,
-                  { backgroundColor: colors.surfaceSubtle, borderColor: colors.border }
+                  {
+                    backgroundColor: isDark ? '#170D08' : '#FFF8F2',
+                    borderColor: colors.border
+                  }
                 ]}
               >
                 <Ionicons
@@ -258,9 +293,9 @@ export default function AuthScreen() {
               disabled={isLoading}
             >
               {isLoading ? (
-                <ActivityIndicator color={colors.primaryText || '#0D1117'} size="small" />
+                <ActivityIndicator color="#FFFFFF" size="small" />
               ) : (
-                <Text style={[styles.submitButtonText, { color: colors.primaryText || '#0D1117' }]}>
+                <Text style={[styles.submitButtonText, { color: '#FFFFFF' }]}>
                   {isRegister ? 'Create Account' : 'Sign In'}
                 </Text>
               )}
@@ -270,11 +305,20 @@ export default function AuthScreen() {
             <View
               style={[
                 styles.demoFillBtn,
-                { backgroundColor: colors.primaryLight, borderColor: colors.border }
+                {
+                  backgroundColor: isDark ? 'rgba(0, 0, 0, 0.22)' : colors.surfaceSubtle,
+                  borderColor: isDark ? 'rgba(255, 227, 179, 0.3)' : 'rgba(234, 97, 19, 0.18)'
+                }
               ]}
             >
-              <Ionicons name="shield-checkmark" size={14} color={colors.primary} />
-              <Text style={[styles.demoFillText, { color: colors.primary }]}>
+              <Ionicons
+                name="shield-checkmark"
+                size={14}
+                color={isDark ? '#FFE3B3' : colors.primary}
+              />
+              <Text
+                style={[styles.demoFillText, { color: isDark ? '#FFE3B3' : colors.textSecondary }]}
+              >
                 Private per-email vault • Set PIN & Face ID after login
               </Text>
             </View>
@@ -283,12 +327,21 @@ export default function AuthScreen() {
             <TouchableOpacity
               style={[
                 styles.demoFillBtn,
-                { backgroundColor: colors.surfaceSubtle, borderColor: colors.border }
+                {
+                  backgroundColor: isDark ? 'rgba(0, 0, 0, 0.22)' : colors.surfaceSubtle,
+                  borderColor: isDark ? 'rgba(255, 227, 179, 0.3)' : 'rgba(234, 97, 19, 0.18)'
+                }
               ]}
               onPress={handleFillDemo}
             >
-              <Ionicons name="flash-outline" size={14} color={colors.textSecondary} />
-              <Text style={[styles.demoFillText, { color: colors.textSecondary }]}>
+              <Ionicons
+                name="flash-outline"
+                size={14}
+                color={isDark ? '#FFE3B3' : colors.primary}
+              />
+              <Text
+                style={[styles.demoFillText, { color: isDark ? '#FFE3B3' : colors.primaryDark }]}
+              >
                 Try Demo Account (demo@budgettracker.com)
               </Text>
             </TouchableOpacity>

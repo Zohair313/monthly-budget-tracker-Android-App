@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [sessionSource, setSessionSource] = useState(null); // 'restored' | 'fresh_login' | null
   const [isLoading, setIsLoading] = useState(true);
-  const [themeMode, setThemeMode] = useState('dark');
+  const [themeMode, setThemeMode] = useState('light');
   const [demoMode, setDemoModeState] = useState(false);
   const [apiUrl, setApiUrlState] = useState(api.getBaseUrl());
 

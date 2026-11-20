@@ -189,7 +189,7 @@ export default function AIAssistantModal({ visible, onClose }) {
                     key={idx}
                     style={[
                       styles.chip,
-                      { backgroundColor: colors.surface, borderColor: 'rgba(234, 97, 19, 0.3)' }
+                      { backgroundColor: colors.surface, borderColor: 'rgba(231, 168, 161, 0.3)' }
                     ]}
                     onPress={() => handleAskQuestion(q)}
                     disabled={isAsking}
@@ -347,7 +347,7 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: 'rgba(234, 97, 19, 0.2)'
+    borderColor: 'rgba(231, 168, 161, 0.2)'
   },
   sectionHeaderRow: {
     flexDirection: 'row',
@@ -372,7 +372,7 @@ const styles = StyleSheet.create({
     height: 42,
     borderRadius: 12,
     gap: 6,
-    shadowColor: '#EA6113',
+    shadowColor: '#E28D93',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.25,
     shadowRadius: 6,
@@ -388,7 +388,7 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 12,
     borderWidth: StyleSheet.hairlineWidth,
-    borderColor: 'rgba(234, 97, 19, 0.3)'
+    borderColor: 'rgba(231, 168, 161, 0.3)'
   },
   coachAnswerHeader: {
     flexDirection: 'row',

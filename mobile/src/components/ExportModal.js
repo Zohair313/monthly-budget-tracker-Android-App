@@ -111,7 +111,7 @@ export default function ExportModal({ visible, onClose }) {
           label: 'REMAINING BALANCE',
           value: formatRs(remainingBalance),
           bg: [242, 240, 255],
-          accent: remainingBalance < 0 ? [220, 38, 38] : [234, 97, 19]
+          accent: remainingBalance < 0 ? [220, 38, 38] : [226, 141, 147]
         }
       ];
 
