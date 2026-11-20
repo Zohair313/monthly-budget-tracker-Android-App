@@ -43,7 +43,8 @@
     },
     "plugins": [
       "expo-font",
-      "expo-status-bar"
+      "expo-status-bar",
+      "expo-updates"
     ],
     "extra": {
       "eas": {
@@ -54,7 +55,7 @@
       "policy": "appVersion"
     },
     "updates": {
-      "url": "https://u.expo.dev/901c114a-9fb4-460c-93ea-27b88692a3ed"
+      "url": "  "
     }
   }
 }
